@@ -11,8 +11,8 @@ class Landing extends Component {
         <div className='row mb-5'>
           <div className='col'>
             <h1 className='phon-header text-center'>Phonitaur</h1>
-            <h1 className='phon-second text-center'>фонитор</h1>
-            <h1 className='phon-third text-center'>fɑnɪtɑɹ</h1>
+            <h1 className='phon-second text-center'>фонитюр</h1>
+            <h1 className='phon-third text-center'>fɑnɪtɔɹ</h1>
             <h1 className='phon-fourth text-center'>فنيتار</h1>
           </div>
         </div>
