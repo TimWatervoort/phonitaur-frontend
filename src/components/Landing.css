@@ -1,0 +1,50 @@
+.phonitaurImg {
+  max-width: 400px;
+  height: auto;
+}
+
+.phon-header {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.phon-second {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: .3em;
+  color: #acafaf;
+  z-index: 2;
+}
+
+.phon-third {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: .7em;
+  color: #cecece;
+  z-index: 1;
+}
+
+.phon-fourth {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 1em;
+  color: #eaeaea;
+  z-index: 0;
+}

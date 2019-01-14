@@ -9,7 +9,7 @@ import { getQuestions } from './actions/index';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-store.dispatch(getQuestions());
+// store.dispatch(getQuestions());
 
 ReactDOM.render(
   <Provider store={store}>
