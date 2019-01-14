@@ -1,4 +1,17 @@
-.home-header{
+.user-card {
+  border: none;
+}
+
+.user-card-body {
+  background-color: rgba(36, 137, 181, 0.8);
+  border: none;
+}
+
+.user-img {
+  max-width: 150px;
+  height: auto;
+}
+
+.user-text {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-  color: #333333;
 }

@@ -8,8 +8,10 @@ class Transcripter extends Component {
       <div>
         <div className='container'>
           <div className='row'>
-            <div className='col text-center'>
+            <div className='col'>
+
               <h1 className='trans-header'>Transcripter</h1>
+
             </div>
           </div>
         </div>
