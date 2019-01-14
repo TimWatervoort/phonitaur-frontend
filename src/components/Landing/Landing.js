@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import minotaur from '../../images/phonitaur_transparent.png';
 import './Landing.css';
-import bgimg from '../../images/bgimg.jpg';
 import { Link } from 'react-router-dom';
 
 class Landing extends Component {

@@ -1,0 +1,22 @@
+.lang-card-body {
+  background-color: rgba(36, 137, 181, 0.2);
+  border: none;
+}
+
+.lang-card-img {
+  object-fit: cover;
+  max-width: 400px;
+  height: 200px;
+}
+
+.lang-card {
+  max-width: 400px;
+}
+
+.lang-text {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.cont-button {
+  width: 100px;
+}
