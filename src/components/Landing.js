@@ -30,7 +30,7 @@ class Landing extends Component {
         </div>
         <div className='row'>
           <div className='col text-center'>
-            <span className='mb-0 text-light'> or </span>
+            <span className='mb-0 or'> or </span>
           </div>
         </div>
         <div className='row'>
