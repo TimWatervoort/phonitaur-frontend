@@ -17,14 +17,6 @@
   background-color: rgba(193, 207, 244, 0.3);
 }
 
-body {
-  background: url('../images/bgimg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}
-
 .phon-header {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   position: absolute;

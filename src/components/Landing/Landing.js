@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import minotaur from '../images/phonitaur_transparent.png';
+import minotaur from '../../images/phonitaur_transparent.png';
 import './Landing.css';
-import bgimg from '../images/bgimg.jpg';
+import bgimg from '../../images/bgimg.jpg';
+import { Link } from 'react-router-dom';
 
 class Landing extends Component {
   render() {
@@ -25,7 +26,7 @@ class Landing extends Component {
 
         <div className='row mt-0'>
           <div className='col text-center'>
-            <button className='enter-button'>Enter Site</button>
+            <Link to='/home' ><button className='enter-button'>Enter Site</button></Link>
           </div>
         </div>
         <div className='row'>
@@ -35,7 +36,7 @@ class Landing extends Component {
         </div>
         <div className='row'>
           <div className='col text-center'>
-            <button className='enter-button'>Enter Transcripter</button>
+            <Link to='/transcripter'><button className='enter-button'>Enter Transcripter</button></Link>
           </div>
         </div>
 
