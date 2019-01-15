@@ -11,3 +11,7 @@
   text-decoration: none;
   color: grey;
 }
+
+.my-nav {
+  background-color: rgba(173, 15, 36, 0.5);
+}

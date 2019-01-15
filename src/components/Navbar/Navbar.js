@@ -6,10 +6,10 @@ class Navbar extends Component {
   render(){
     return(
       <div>
-        <nav className='navbar navbar-dark bg-dark'>
+        <nav className='navbar my-nav'>
           <Link to='/' className='mx-auto nav-head nav-top'>Phonitaur</Link>
         </nav>
-        <div className='container-fluid bg-dark'>
+        <div className='container-fluid my-nav'>
           <p className='nav-head text-center pb-2 text-white'>Know your alphabets.</p>
         </div>
       </div>
