@@ -19,3 +19,11 @@
 #userCard {
   background-color: rgba(0, 0, 0, 0);
 }
+
+#linksCard {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.links-btn {
+  width: 100%;
+}

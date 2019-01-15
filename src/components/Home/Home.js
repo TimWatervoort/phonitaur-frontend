@@ -16,8 +16,8 @@ class Home extends Component {
         <div className='container'>
 
           <div className='row'>
-            <div className='col text-center'>
-              <div id='userCard' className='card card-transparent user-card mt-4'>
+            <div className='col-lg-8 col-md-12 text-left'>
+              <div id='userCard' className='card user-card mt-4'>
                 <div className='card-body user-card-body'>
 
                   <div className='row'>
@@ -35,6 +35,17 @@ class Home extends Component {
                 </div>
               </div>
             </div>
+
+            <div className='col-lg-4 col-md-12'>
+              <div id='linksCard' className='card user-card mt-4'>
+                <div className='card-body user-card-body'>
+                  <button className='links-btn mt-3 user-text btn btn-danger'>Add Another Course</button>
+                  <button className='links-btn mt-3 user-text btn btn-danger'>Edit Profile</button>
+                  <button className='links-btn my-3 user-text btn btn-danger'>Remove a Course</button>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <div className='mt-3 row'>

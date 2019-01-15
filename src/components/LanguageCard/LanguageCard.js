@@ -11,7 +11,7 @@ class LanguageCard extends Component {
           <div className="d-flex flex-column card-img-overlay">
             <h3 className='card-title lang-text'><strong>{alphabet.name}</strong></h3>
 
-            <button className='mt-auto mx-auto cont-button btn btn-primary lang-text'>Continue!</button>
+            <button className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</button>
           </div>
         </div>
       </div>
