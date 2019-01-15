@@ -1,18 +1,16 @@
-export const GETTING_QUESTIONS = 'GETTING_QUESTIONS';
-export const GET_QUESTIONS = 'GET_QUESTIONS';
+export const GETTING_USER = 'GETTING_USER';
+export const GET_USER = 'GET_USER';
 
-const apiUrl = 'http://localhost:8000'
+const apiUrl = 'http://localhost:8000';
 
-export const getQuestions = () => {
+export const getUser = () => {
   return async dispatch => {
-    dispatch({
-      type: GETTING_QUESTIONS
-    });
-    const response = await fetch(`${apiUrl}/questions`);
+    dispatch({type: GETTING_USER});
+    const response = await fetch(`${apiUrl}/users/1`);
     const json = await response.json();
     dispatch({
-      type: GET_QUESTIONS,
-      payload: json.message
+      type: GET_USER,
+      payload: json
     });
   }
 }

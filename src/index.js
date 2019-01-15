@@ -5,11 +5,11 @@ import App from './App';
 import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import { getQuestions } from './actions/index';
+import { getUser } from './actions/index';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// store.dispatch(getQuestions());
+store.dispatch(getUser());
 
 ReactDOM.render(
   <Provider store={store}>

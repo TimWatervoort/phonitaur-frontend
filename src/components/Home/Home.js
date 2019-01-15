@@ -7,8 +7,7 @@ import LanguageCard from '../LanguageCard/LanguageCard';
 class Home extends Component {
   render() {
 
-    const dummyList = [{name: 'Cyrillic', img:'https://cdn.pixabay.com/photo/2018/12/26/05/13/moscow-3895333_960_720.jpg', textColor: 'text-dark'}, {name: 'Arabic', img: 'https://cdn.pixabay.com/photo/2017/09/22/09/48/desert-2774945_960_720.jpg', textColor: 'text-white'}, {name: 'International Phonetic Alphabet', img:'https://cdn.pixabay.com/photo/2017/06/14/08/20/map-of-the-world-2401458_960_720.jpg', textColor: 'text-black'}]
-    const alphaList = dummyList.map((x,i) => <LanguageCard key={i} alphabet={x} />);
+    const { user } = this.props;
 
     return(
       <div>
@@ -37,7 +36,7 @@ class Home extends Component {
           </div>
 
           <div className='mt-3 row'>
-            {alphaList}
+            {user.languages ? user.languages.map((x,i) => <LanguageCard key={i} alphabet={x} />) : null}
           </div>
 
         </div>
