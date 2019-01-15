@@ -20,12 +20,12 @@ class Home extends Component {
 
                   <div className='row'>
                     <div className='col-4'>
-                      <img className="user-img" src={minotaur} alt="User"/>
+                      <img className="user-img" src={user.img ? user.img : minotaur} alt="User"/>
                     </div>
                     <div className='col-8 text-left'>
-                      <h3 className='card-title user-text'>Username</h3>
-                      <h4 className='card-subtitle text-muted user-text'>Mother alphabet</h4>
-                      <p className='mt-3 card-text user-text'>Alphabets learning: </p>
+                      <h3 className='card-title user-text'>{user.username}</h3>
+                      <h4 className='card-subtitle text-muted user-text'>{user.mother_alphabet}</h4>
+                      <p className='mt-3 card-text user-text'>Alphabets learning: {user.languages ? user.languages.length : null}</p>
                       <p className='mt-3 card-text user-text'>Alphabets learned: </p>
                     </div>
                   </div>
