@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Home.css';
 import minotaur from '../../images/phonitaur_transparent.png';
 import LanguageCard from '../LanguageCard/LanguageCard';
+import Navbar from '../Navbar/Navbar';
 
 class Home extends Component {
   render() {
@@ -11,6 +12,7 @@ class Home extends Component {
 
     return(
       <div>
+        <Navbar />
         <div className='container'>
 
           <div className='row'>

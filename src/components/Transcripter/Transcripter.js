@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Transcripter.css';
+import Navbar from '../Navbar/Navbar';
 
 class Transcripter extends Component {
   render(){
     return(
       <div>
+      <Navbar />
         <div className='container'>
           <div className='row'>
             <div className='col'>
