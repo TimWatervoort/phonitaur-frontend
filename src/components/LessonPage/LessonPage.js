@@ -8,13 +8,16 @@ import Navbar from '../Navbar/Navbar';
 
 class LessonPage extends Component {
   render() {
+
+    const { alphabet, match } = this.props;
+
     return(
       <div>
-        <Navbar />
+        <Navbar leftButton={'All Lessons'} leftLink={`/lessons/${alphabet.id}`} rightButton={'Next Lesson'} rightLink={`lesson/${match.params.id + 1}`} />
         <div className='container'>
           <div className='row'>
             <div className='col'>
-              <h2 className='text-center text-white user-text'>{this.props.alphabet.name} Lesson 1</h2>
+              <h2 className='my-4 text-center text-white user-text'>{alphabet.name ? alphabet.name : <Redirect to='/home'/>} Lesson 1</h2>
             </div>
           </div>
         </div>

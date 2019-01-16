@@ -13,7 +13,7 @@ class Home extends Component {
 
     return(
       <div>
-        <Navbar />
+        <Navbar leftButton={'Log Out'} leftLink={'/home'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div className='container'>
 
           <div className='row'>

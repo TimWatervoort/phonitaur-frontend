@@ -19,9 +19,9 @@ class LessonList extends Component {
 
     return (
       <div>
-        <Navbar />
+        <Navbar leftButton={'My Profile'} leftLink={'/home'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div className='container'>
-          <div className='row mb-4'>
+          <div className='row my-4'>
             <div className='col'>
               <h3 className='user-text text-center text-white'>{alphabet? alphabet.name: null} Lessons</h3>
             </div>
