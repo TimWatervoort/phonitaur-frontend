@@ -3,7 +3,7 @@ import './LessonCard.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getLessons } from '../../actions/index';
+import { getQuestions } from '../../actions/index';
 
 class LessonCard extends Component {
 
@@ -16,6 +16,7 @@ class LessonCard extends Component {
   }
 
   redirectToLesson() {
+    this.props.getQuestions(this.props.lesson.id);
     this.setState({clicked: true});
   }
 
@@ -42,7 +43,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getLessons
+  getQuestions
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(LessonCard);
