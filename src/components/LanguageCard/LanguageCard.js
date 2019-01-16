@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
 import './LanguageCard.css';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getLessons } from '../../actions/index';
 
 class LanguageCard extends Component {
+
+  constructor(props){
+    super(props);
+    this.retrieveLessons = this.retrieveLessons.bind(this);
+  }
+
+  retrieveLessons(){
+    const { alphabet, getLessons } = this.props;
+    getLessons(alphabet.id);
+  }
+
   render(){
     const { alphabet } = this.props;
     return(
@@ -12,7 +26,7 @@ class LanguageCard extends Component {
           <div className="d-flex flex-column card-img-overlay">
             <h3 className='card-title lang-text'><strong>{alphabet.name}</strong></h3>
 
-            <Link to={`lessons/${alphabet.id}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>
+            <Link to={`learn/${alphabet.id}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>
           </div>
         </div>
       </div>
@@ -20,4 +34,12 @@ class LanguageCard extends Component {
   }
 }
 
-export default LanguageCard;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  getLessons
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(LanguageCard);

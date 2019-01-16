@@ -4,6 +4,7 @@ import Landing from './components/Landing/Landing';
 import Home from './components/Home/Home';
 import Transcripter from './components/Transcripter/Transcripter';
 import Catalog from './components/Catalog/Catalog';
+import LessonList from './components/LessonList/LessonList';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Route path='/home' component={Home}/>
         <Route path='/transcripter' component={Transcripter}/>
         <Route path='/catalog' component={Catalog}/>
+        <Route path='/learn/:id' component={LessonList}/>
       </div>
     );
   }
