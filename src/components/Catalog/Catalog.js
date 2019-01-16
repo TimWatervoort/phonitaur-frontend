@@ -11,9 +11,9 @@ class Catalog extends Component {
 
     return (
       <div>
-      <Navbar />
+        <Navbar leftButton={'My Profile'} leftLink={'/home'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div>
-          <h4 className='text-white text-center lang-text'>Course Catalog</h4>
+          <h4 className='text-white text-center lang-text my-4'>Course Catalog</h4>
         </div>
         <div className='container'>
           <div className='row'>
