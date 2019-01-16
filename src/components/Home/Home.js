@@ -4,6 +4,7 @@ import './Home.css';
 import minotaur from '../../images/phonitaur_transparent.png';
 import LanguageCard from '../LanguageCard/LanguageCard';
 import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
@@ -39,7 +40,7 @@ class Home extends Component {
             <div className='col-lg-4 col-md-12'>
               <div id='linksCard' className='card user-card mt-4'>
                 <div className='card-body user-card-body'>
-                  <button className='links-btn mt-3 user-text btn btn-danger'>Add Another Course</button>
+                  <Link to='/catalog' className='links-btn mt-3 user-text btn btn-danger'>View Course Catalog</Link>
                   <button className='links-btn mt-3 user-text btn btn-danger'>Edit Profile</button>
                   <button className='links-btn my-3 user-text btn btn-danger'>Remove a Course</button>
                 </div>
