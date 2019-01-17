@@ -7,6 +7,7 @@ import Catalog from './components/Catalog/Catalog';
 import LessonList from './components/LessonList/LessonList';
 import LessonPage from './components/LessonPage/LessonPage';
 import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path='/learn/:id' component={LessonList}/>
         <Route path='/lesson/:id' component={LessonPage}/>
         <Route path='/login' component={Login}/>
+        <Route path='/signup' component={Signup}/>
       </div>
     );
   }

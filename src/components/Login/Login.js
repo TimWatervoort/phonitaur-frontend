@@ -41,7 +41,7 @@ class Login extends Component {
               <div className='card mt-3' id='user-card'>
                 <div className='card-body user-card-body'>
 
-                  <h3 className='card-title user-text text-white text-center'>Login</h3>
+                  <h3 className='mb-4 card-title user-text text-white text-center'>Login</h3>
 
                   <form onSubmit={this.sendLogin}>
 
