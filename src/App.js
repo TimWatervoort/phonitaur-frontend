@@ -6,6 +6,7 @@ import Transcripter from './components/Transcripter/Transcripter';
 import Catalog from './components/Catalog/Catalog';
 import LessonList from './components/LessonList/LessonList';
 import LessonPage from './components/LessonPage/LessonPage';
+import Login from './components/Login/Login';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         <Route path='/catalog' component={Catalog}/>
         <Route path='/learn/:id' component={LessonList}/>
         <Route path='/lesson/:id' component={LessonPage}/>
+        <Route path='/login' component={Login}/>
       </div>
     );
   }
