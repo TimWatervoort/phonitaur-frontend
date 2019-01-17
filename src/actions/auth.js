@@ -1,4 +1,6 @@
 import Cookies from 'js-cookie';
+import jwt from 'jsonwebtoken';
+import { GET_USER } from './index';
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
@@ -26,6 +28,13 @@ export const login = data => {
       dispatch({
         type: LOGIN_SUCCESS
       });
+      const decoded = jwt.decode(json.access)
+      const response2 = await fetch(`${apiUrl}/users/${decoded.user_id}`);
+      const json2 = await response2.json();
+      dispatch({
+        type: GET_USER,
+        payload: json2
+      });
     }
   }
 }
@@ -40,9 +49,15 @@ export const signup = data => {
 
 export const logout = () => {
   return dispatch => {
-    Cookies.remove('phonitoken');
-    dispatch({
-      type: LOGOUT_SUCCESS
-    });
+    try {
+      Cookies.remove('phonitoken')
+      dispatch({
+        type: LOGOUT_SUCCESS
+      });
+    } catch {
+      dispatch({
+        type: LOGOUT_FAILURE
+      });
+    }
   }
 }

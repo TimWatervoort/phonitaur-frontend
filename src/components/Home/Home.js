@@ -4,7 +4,8 @@ import './Home.css';
 import minotaur from '../../images/phonitaur_transparent.png';
 import LanguageCard from '../LanguageCard/LanguageCard';
 import Navbar from '../Navbar/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 class Home extends Component {
   render() {
@@ -17,6 +18,9 @@ class Home extends Component {
         <div className='container'>
 
           <div className='row'>
+
+            {!Cookies.get('phonitoken') ? <Redirect to='/' /> : null}
+
             <div className='col-lg-8 col-md-12 text-left'>
               <div id='userCard' className='card user-card mt-4'>
                 <div className='card-body user-card-body'>

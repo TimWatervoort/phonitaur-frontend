@@ -1,3 +1,6 @@
+import Cookies from 'js-cookie';
+import jwt from 'jsonwebtoken';
+
 export const GETTING_USER = 'GETTING_USER';
 export const GET_USER = 'GET_USER';
 export const GETTING_LANGUAGES = 'GETTING_LANGUAGES';
@@ -13,13 +16,16 @@ const apiUrl = 'http://localhost:8000';
 
 export const getUser = () => {
   return async dispatch => {
-    dispatch({type: GETTING_USER});
-    const response = await fetch(`${apiUrl}/users/1`);
-    const json = await response.json();
-    dispatch({
-      type: GET_USER,
-      payload: json
-    });
+    if (Cookies.get('phonitoken')) {
+      dispatch({type: GETTING_USER});
+      const decoded = jwt.decode(Cookies.get('phonitoken'));
+      const response = await fetch(`${apiUrl}/users/${decoded.user_id}`);
+      const json = await response.json();
+      dispatch({
+        type: GET_USER,
+        payload: json
+      });
+    }
   }
 }
 
