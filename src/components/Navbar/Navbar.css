@@ -2,16 +2,19 @@
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.nav-top {
-  font-size: 25px;
+.nav-but {
   color: white;
 }
 
-.nav-top:hover {
+.nav-but:hover {
   text-decoration: none;
-  color: grey;
+  color: #892626;
 }
 
 .my-nav {
   background-color: rgba(173, 15, 36, 0.5);
+}
+
+.nav-top{
+  font-size: 25px;
 }
