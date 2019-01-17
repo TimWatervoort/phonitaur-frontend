@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Navbar/Navbar';
+import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { login } from '../../actions/auth';
 import './Login.css';
 
 class Login extends Component {
@@ -23,7 +26,8 @@ class Login extends Component {
 
   sendLogin = e => {
     e.preventDefault();
-    console.log(this.state);
+    const { login } = this.props;
+    login(this.state);
     this.setState({
       username: '',
       password: ''
@@ -31,10 +35,17 @@ class Login extends Component {
   }
 
   render() {
+
+    const { auth } = this.props;
+    console.log(auth);
+
     return(
       <div>
         <Navbar leftButton={'Back To Home'} leftLink={'/'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div className='container'>
+
+        {auth === 'Login success.' ? <Redirect to='/home'/> : null}
+
           <div className='row'>
             <div className='col'>
 
@@ -59,7 +70,7 @@ class Login extends Component {
                         <h5 className='text-white user-text'>Password:</h5>
                       </div>
                       <div className='col-10'>
-                        <input className='form-control' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='text' placeholder='password'/>
+                        <input className='form-control' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='password' placeholder='password'/>
                       </div>
                     </div>
 
@@ -81,7 +92,12 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  auth: state.auth
 });
 
-export default connect(mapStateToProps)(Login);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  login
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

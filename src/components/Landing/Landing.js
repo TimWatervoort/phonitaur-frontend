@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import minotaur from '../../images/phonitaur_transparent.png';
 import './Landing.css';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 class Landing extends Component {
   render() {
@@ -25,7 +26,7 @@ class Landing extends Component {
 
         <div className='row mt-0'>
           <div className='col text-center'>
-            <Link to='/home' ><button className='enter-button'>Enter Site</button></Link>
+            <Link to={Cookies.get('phonitoken') ? '/home' : '/auth'} ><button className='enter-button'>Enter Site</button></Link>
           </div>
         </div>
         <div className='row'>
