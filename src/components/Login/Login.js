@@ -37,7 +37,6 @@ class Login extends Component {
   render() {
 
     const { auth } = this.props;
-    console.log(auth);
 
     return(
       <div>

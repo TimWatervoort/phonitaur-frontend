@@ -7,7 +7,7 @@ class Transcripter extends Component {
   render(){
     return(
       <div>
-      <Navbar />
+      <Navbar leftButton={'My Profile'} leftLink={'/home'} rightButton={'Course Catalog'} rightLink={'/catalog'}/>
         <div className='container'>
           <div className='row'>
             <div className='col'>
