@@ -13,7 +13,7 @@ class LessonPage extends Component {
 
     return(
       <div>
-        <Navbar leftButton={'All Lessons'} leftLink={`/lessons/${alphabet.id}`} rightButton={'Next Lesson'} rightLink={`lesson/${match.params.id + 1}`} />
+        <Navbar leftButton={'All Lessons'} leftLink={`/learn/${alphabet.id}`} rightButton={'Next Lesson'} rightLink={`lesson/${match.params.id + 1}`} />
         <div className='container'>
           <div className='row'>
             <div className='col'>
