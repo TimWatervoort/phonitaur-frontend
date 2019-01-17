@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Navbar/Navbar';
+import { Redirect } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import { signup } from '../../actions/auth';
 import './Signup.css';
 
 class Signup extends Component {
@@ -27,6 +30,7 @@ class Signup extends Component {
 
   sendSignup = e => {
     e.preventDefault();
+    const { signup } = this.props;
     if (this.state.password !== this.state.confPassword) {
       console.log('Bad. Do better.');
       this.setState({
@@ -34,6 +38,7 @@ class Signup extends Component {
         confPassword: ''
       });
     } else {
+      signup(this.state);
       console.log(this.state);
       this.setState({
         username: '',
@@ -47,10 +52,16 @@ class Signup extends Component {
   }
 
   render() {
+
+    const { auth } = this.props;
+
     return(
       <div>
         <Navbar leftButton={'Back To Home'} leftLink={'/'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div className='container'>
+
+        {auth === 'Signup success.' ? <Redirect to='/login' /> : null}
+
           <div className='row'>
             <div className='col'>
 
@@ -133,7 +144,12 @@ class Signup extends Component {
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  auth: state.auth
 });
 
-export default connect(mapStateToProps)(Signup);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  signup
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
