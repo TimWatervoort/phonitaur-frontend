@@ -3,12 +3,12 @@
 }
 
 .nav-but {
-  color: white;
+  color: white !important;
 }
 
 .nav-but:hover {
   text-decoration: none;
-  color: #892626;
+  color: #892626 !important;
 }
 
 .my-nav {

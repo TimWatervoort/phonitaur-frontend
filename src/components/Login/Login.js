@@ -56,19 +56,19 @@ class Login extends Component {
                   <form onSubmit={this.sendLogin}>
 
                     <div className='row'>
-                      <div className='col-2 mt-2'>
+                      <div className='col-lg-2 col-md-12 mt-2'>
                         <h5 className='text-white user-text'>Username:</h5>
                       </div>
-                      <div className='col-10'>
+                      <div className='col-lg-10 col-md-12'>
                         <input className='form-control' value={this.state.username} onChange={this.setValue} name='username' autoComplete='off' type='text' placeholder='username'/>
                       </div>
                     </div>
 
                     <div className='row mt-2'>
-                      <div className='col-2 mt-2'>
+                      <div className='col-lg-2 col-md-12 mt-2'>
                         <h5 className='text-white user-text'>Password:</h5>
                       </div>
-                      <div className='col-10'>
+                      <div className='col-lg-10 col-md-12'>
                         <input className='form-control' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='password' placeholder='password'/>
                       </div>
                     </div>
