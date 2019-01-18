@@ -76,3 +76,19 @@ export const getQuestions = id => {
     });
   }
 }
+
+export const addCourse = data => {
+  return async dispatch => {
+    const response = await fetch(`${apiUrl}/users/${data.id}/`,{
+      method: 'PATCH',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    })
+    const json = await response.json();
+    console.log('response', response);
+    dispatch({
+      type: GET_USER,
+      payload: json
+    });
+  }
+}

@@ -3,13 +3,20 @@ import './LanguageCard.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getLessons } from '../../actions/index';
+import { getLessons, addCourse } from '../../actions/index';
 
 class LanguageCard extends Component {
 
   constructor(props){
     super(props);
     this.retrieveLessons = this.retrieveLessons.bind(this);
+    this.add = this.add.bind(this);
+  }
+
+  add(){
+    const { alphabet, user, addCourse } = this.props;
+    user.languages = [...user.languages, alphabet];
+    addCourse(user);
   }
 
   retrieveLessons(){
@@ -27,6 +34,7 @@ class LanguageCard extends Component {
             <h3 className='card-title lang-text'><strong>{alphabet.name}</strong></h3>
 
             <Link to={`learn/${alphabet.id}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>
+            <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add</button>
           </div>
         </div>
       </div>
@@ -39,7 +47,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getLessons
+  getLessons,
+  addCourse
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(LanguageCard);
