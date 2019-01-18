@@ -11,12 +11,33 @@ import LanguageRemover from '../LanguageRemover/LanguageRemover';
 class Home extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
+    const { user } = this.props
+    this.state = {
+      username: user.username,
+      img: user.img,
+      mother_alphabet: user.mother_alphabet,
+      removalOn: false
+    }
+  }
+
+  toggleRemoval = e => {
+    e.preventDefault();
+    this.setState({
+      removalOn: !this.state.removalOn
+    });
   }
 
   render() {
 
     const { user } = this.props;
+
+    let cardChoice = null;
+    if (user.languages && this.state.removalOn) {
+      cardChoice = user.languages.map((x,i) => <LanguageRemover key={i} alphabet={x} />);
+    } else if (user.languages && !this.state.removalOn) {
+      cardChoice = user.languages.map((x,i) => <LanguageCard key={i} alphabet={x} />);
+    }
 
     return(
       <div>
@@ -52,7 +73,7 @@ class Home extends Component {
                 <div className='card-body user-card-body'>
                   <Link to='/catalog' className='links-btn mt-3 user-text btn btn-danger'>View Course Catalog</Link>
                   <button className='links-btn mt-3 user-text btn btn-danger'>Edit Profile</button>
-                  <button className='links-btn my-3 user-text btn btn-danger'>Remove a Course</button>
+                  <button onClick={this.toggleRemoval} className='links-btn my-3 user-text btn btn-danger'>{this.state.removalOn ? 'Done Removing' : 'Remove a Course'}</button>
                 </div>
               </div>
             </div>
@@ -60,7 +81,7 @@ class Home extends Component {
           </div>
 
           <div className='mt-3 row'>
-            {user.languages ? user.languages.map((x,i) => <LanguageCard key={i} alphabet={x} />) : null}
+            {cardChoice}
           </div>
 
         </div>
