@@ -28,7 +28,7 @@ class LanguageCard extends Component {
 
     const { alphabet, user } = this.props;
 
-    let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add</button>;
+    let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add Course</button>;
 
     for (var i = 0; i < user.languages.length; i++) {
       if (user.languages[i].name === alphabet.name) {

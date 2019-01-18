@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { updateCourses } from '../../actions/index';
 import './Home.css';
-import minotaur from '../../images/phonitaur_transparent.png';
 import LanguageCard from '../LanguageCard/LanguageCard';
 import Navbar from '../Navbar/Navbar';
 import { Link, Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import LanguageRemover from '../LanguageRemover/LanguageRemover';
+import ProfileCard from '../ProfileCard/ProfileCard';
+import EditableCard from '../ProfileCard/EditableCard';
 
 class Home extends Component {
 
@@ -17,7 +20,8 @@ class Home extends Component {
       username: user.username,
       img: user.img,
       mother_alphabet: user.mother_alphabet,
-      removalOn: false
+      removalOn: false,
+      editOn: false
     }
   }
 
@@ -26,6 +30,48 @@ class Home extends Component {
     this.setState({
       removalOn: !this.state.removalOn
     });
+  }
+
+  toggleEdit = e => {
+    e.preventDefault();
+    const { user } = this.props
+    this.setState({
+      username: user.username,
+      img: user.img,
+      mother_alphabet: user.mother_alphabet,
+      removalOn: false,
+      editOn: !this.state.editOn
+    });
+  }
+
+  handleChange = e => {
+    const key = e.target.name;
+    const value = e.target.value.replace(/\s/g, '');
+    this.setState({
+      [key]: value
+    });
+  }
+
+  onSubmit = e => {
+    e.preventDefault();
+    const { user, updateCourses } = this.props
+    const data = {
+      id: user.id,
+      username: this.state.username,
+      img: this.state.img,
+      mother_alphabet: this.state.mother_alphabet,
+      password: user.password,
+      languages: user.languages,
+      email: user.email
+    }
+    updateCourses(data);
+    this.setState({
+      username: user.username,
+      img: user.img,
+      mother_alphabet: user.mother_alphabet,
+      removalOn: false,
+      editOn: false
+    })
   }
 
   render() {
@@ -48,31 +94,13 @@ class Home extends Component {
 
             {!Cookies.get('phonitoken') ? <Redirect to='/' /> : null}
 
-            <div className='col-lg-8 col-md-12 text-left'>
-              <div id='userCard' className='card user-card mt-4'>
-                <div className='card-body user-card-body'>
-
-                  <div className='row'>
-                    <div className='col-4'>
-                      <img className="user-img" src={user.img ? user.img : minotaur} alt="User"/>
-                    </div>
-                    <div className='col-8 text-left'>
-                      <h3 className='text-white card-title user-text'>{user.username}</h3>
-                      <h4 className='text-grey card-subtitle user-text'>{user.mother_alphabet} Alphabet User</h4>
-                      <p className='text-white mt-3 card-text user-text'>Alphabets learning: {user.languages ? user.languages.length : null}</p>
-                      <p className='text-white mt-3 card-text user-text'>Alphabets learned: 0</p>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+            {!this.state.editOn ? <ProfileCard user={user} /> : <EditableCard user={user} handleChange={this.handleChange} onSubmit={this.onSubmit}/>}
 
             <div className='col-lg-4 col-md-12'>
               <div id='linksCard' className='card user-card mt-4'>
                 <div className='card-body user-card-body'>
                   <Link to='/catalog' className='links-btn mt-3 user-text btn btn-danger'>View Course Catalog</Link>
-                  <button className='links-btn mt-3 user-text btn btn-danger'>Edit Profile</button>
+                  <button onClick={this.toggleEdit} className='links-btn mt-3 user-text btn btn-danger'>{this.state.editOn ? 'Done Editing' : 'Edit Profile'}</button>
                   <button onClick={this.toggleRemoval} className='links-btn my-3 user-text btn btn-danger'>{this.state.removalOn ? 'Done Removing' : 'Remove a Course'}</button>
                 </div>
               </div>
@@ -95,4 +123,8 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  updateCourses
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
