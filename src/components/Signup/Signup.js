@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Navbar/Navbar';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { signup } from '../../actions/auth';
 import './Signup.css';
@@ -142,6 +142,14 @@ class Signup extends Component {
 
                   </form>
                 </div>
+              </div>
+
+              <div className='row mt-5'>
+                <p className='text-white user-text mx-auto'>Already have an account?</p>
+              </div>
+
+              <div className='row'>
+                <Link to='/login' className='mx-auto text-white user-text'>Log In</Link>
               </div>
 
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '../Navbar/Navbar';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { login } from '../../actions/auth';
 import './Login.css';
@@ -80,6 +80,14 @@ class Login extends Component {
 
                   </form>
                 </div>
+              </div>
+
+              <div className='row mt-5'>
+                <p className='text-white user-text mx-auto'>Don't have an account?</p>
+              </div>
+
+              <div className='row'>
+                <Link to='/signup' className='mx-auto text-white user-text'>Sign Up</Link>
               </div>
 
             </div>
