@@ -31,16 +31,25 @@ class Signup extends Component {
   sendSignup = e => {
     e.preventDefault();
     const { signup } = this.props;
-    if (this.state.password !== this.state.confPassword) {
-      console.log('Bad. Do better.');
+    if (this.state.password !== this.state.confPassword) { //make sure passwords match
       this.setState({
         password: '',
         confPassword: ''
       });
     } else {
-      signup(this.state);
-      console.log(this.state);
-      this.setState({
+      let data = {      // put state into data object
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email,
+        mother_alphabet: this.state.mother_alphabet
+      }
+      if (this.state.img !== '') {    //if there is an image, include it, else send null
+        data.img = this.state.img;
+      } else {
+        data.img = null;
+      }
+      signup(data);       //send action
+      this.setState({     //blank out fields
         username: '',
         password: '',
         confPassword: '',

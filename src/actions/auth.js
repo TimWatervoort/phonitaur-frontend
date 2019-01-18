@@ -40,10 +40,23 @@ export const login = data => {
 }
 
 export const signup = data => {
-  return dispatch => {
-    dispatch({
-      type: SIGNUP_SUCCESS
+  return async dispatch => {
+    const response = await fetch(`${apiUrl}/users/`, {
+      method: 'POST',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
     });
+    if (response.status !== 201) {
+      dispatch({
+        type: SIGNUP_FAILURE
+      });
+    } else {
+      const json = await response.json();
+      dispatch({
+        type: SIGNUP_SUCCESS,
+        payload: json
+      });
+    }
   }
 }
 
