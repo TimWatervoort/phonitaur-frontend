@@ -6,8 +6,14 @@ import LanguageCard from '../LanguageCard/LanguageCard';
 import Navbar from '../Navbar/Navbar';
 import { Link, Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import LanguageRemover from '../LanguageRemover/LanguageRemover';
 
 class Home extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
   render() {
 
     const { user } = this.props;

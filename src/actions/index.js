@@ -77,7 +77,7 @@ export const getQuestions = id => {
   }
 }
 
-export const addCourse = data => {
+export const updateCourses = data => {
   return async dispatch => {
     const response = await fetch(`${apiUrl}/users/${data.id}/`,{
       method: 'PATCH',
