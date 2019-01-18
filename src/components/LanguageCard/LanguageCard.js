@@ -25,7 +25,17 @@ class LanguageCard extends Component {
   }
 
   render(){
-    const { alphabet } = this.props;
+
+    const { alphabet, user } = this.props;
+
+    let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add</button>;
+
+    for (var i = 0; i < user.languages.length; i++) {
+      if (user.languages[i].name === alphabet.name) {
+        button = <Link to={`learn/${alphabet.id}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>;
+      }
+    }
+
     return(
       <div className='col-lg-4 col-md-6 col-sm-12'>
         <div className={`${alphabet.text_color} card mx-auto lang-card mt-2 mb-2 text-center`}>
@@ -33,8 +43,8 @@ class LanguageCard extends Component {
           <div className="d-flex flex-column card-img-overlay">
             <h3 className='card-title lang-text'><strong>{alphabet.name}</strong></h3>
 
-            <Link to={`learn/${alphabet.id}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>
-            <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add</button>
+            {button}
+
           </div>
         </div>
       </div>
