@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { getLesson } from '../../actions/index';
 import Navbar from '../Navbar/Navbar';
 import InstructionCard from '../InstructionCard/InstructionCard';
+import Question from '../Question/Question';
+import CyrillicKeyboard from '../Keyboards/CyrillicKeyboard';
 
 class LessonPage extends Component {
   render() {
@@ -14,6 +16,8 @@ class LessonPage extends Component {
 
     let instructions = null;
     let chars = null;
+    let keyboard = null;
+
     if (lesson.lesson_text) {
       let textArr = lesson.lesson_text.split(';');
       if (textArr[textArr.length-1].startsWith('New')){
@@ -22,6 +26,9 @@ class LessonPage extends Component {
         chars = charsB.split(',');
       }
       instructions = textArr.map((x,i) => <InstructionCard key={i} text={x} />);
+      if (lesson.language === 'Cyrillic') {
+        keyboard = <CyrillicKeyboard/>;
+      }
     }
 
     return(
@@ -42,7 +49,7 @@ class LessonPage extends Component {
           </div>
 
           <div className='row'>
-            <div className='card mx-auto my-2' id='lesson-card'>
+            <div className='card mx-auto mt-2 mb-3' id='lesson-card'>
               <div className='card-body lesson-card-body'>
                 <h4 className='card-title mx-auto text-center text-white user-text'>New Characters</h4>
                 {chars ? chars.map((x,i) => <span key={i} className='mx-auto user-text text-white'> {x} </span>) : <span className='text-center user-text text-white'>{'None'}</span>}
@@ -52,6 +59,22 @@ class LessonPage extends Component {
 
           <div className='row'>
             {instructions}
+          </div>
+
+          <div className='row'>
+          <div className='col-8'>
+            <div className='card mx-auto my-2' id='question-card'>
+              <div className='card-body lesson-card-body'>
+                <h4 className='card-title mx-auto text-center text-white user-text'>Knowledge Check</h4>
+                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} />) : null}
+              </div>
+            </div>
+          </div>
+
+          <div className='col-4'>
+            {keyboard}
+          </div>
+
           </div>
 
         </div>
