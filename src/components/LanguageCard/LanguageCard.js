@@ -32,7 +32,7 @@ class LanguageCard extends Component {
 
     for (var i = 0; i < user.languages.length; i++) {
       if (user.languages[i].name === alphabet.name) {
-        button = <Link to={`learn/${alphabet.id}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>;
+        button = <Link to={`learn/${alphabet.name}`} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Continue!</Link>;
       }
     }
 
