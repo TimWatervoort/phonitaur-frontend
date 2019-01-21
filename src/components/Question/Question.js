@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Question.css';
+import CyrillicKeyboard from '../Keyboards/CyrillicKeyboard'
 
 class Question extends Component {
 
@@ -7,7 +8,8 @@ class Question extends Component {
     super(props);
     this.state = {
       value: '',
-      answer: ''
+      answer: '',
+      hidden: true
     }
   }
 
@@ -26,15 +28,32 @@ class Question extends Component {
     }
   }
 
+  toggleKeys = e => {
+    this.setState({ hidden: !this.state.hidden })
+  }
+
+  addToInput = val => {
+    let newVal = `${this.state.value}${val}`;
+    this.setState({ value: newVal });
+  }
+
   render() {
 
-    const { question } = this.props;
+    const { question, value } = this.props;
 
     return (
-      <form onSubmit={this.checkAnswer} className='mb-4'>
+    <div>
+      <form onSubmit={this.checkAnswer} className='mt-2'>
         <p className='ml-1 user-text text-white'>{question.question_text}</p>
         <input value={this.state.value} onChange={this.handleChange} className={`form-control ${this.state.answer}`} placeholder='type your answer' autoComplete='off'/>
       </form>
+
+      <button onClick={this.toggleKeys} className='btn btn-danger mt-1 mb-4'><i class="fas fa-keyboard"></i></button>
+      <button onClick={this.checkAnswer} className='btn btn-danger user-text mt-1 mb-4 mx-1'>Submit</button>
+      <div hidden={this.state.hidden}>
+        <CyrillicKeyboard fkb={this.addToInput}/>
+      </div>
+    </div>
     )
   }
 }

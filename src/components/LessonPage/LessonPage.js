@@ -7,16 +7,24 @@ import { getLesson } from '../../actions/index';
 import Navbar from '../Navbar/Navbar';
 import InstructionCard from '../InstructionCard/InstructionCard';
 import Question from '../Question/Question';
-import CyrillicKeyboard from '../Keyboards/CyrillicKeyboard';
 
 class LessonPage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {value: ''}
+  }
+
+  handleKeyboard = val => {
+    this.setState({value: val});
+  }
+
   render() {
 
     const { alphabet, match, lesson } = this.props;
 
     let instructions = null;
     let chars = null;
-    let keyboard = null;
 
     if (lesson.lesson_text) {
       let textArr = lesson.lesson_text.split(';');
@@ -26,9 +34,6 @@ class LessonPage extends Component {
         chars = charsB.split(',');
       }
       instructions = textArr.map((x,i) => <InstructionCard key={i} text={x} />);
-      if (lesson.language === 'Cyrillic') {
-        keyboard = <CyrillicKeyboard/>;
-      }
     }
 
     return(
@@ -62,17 +67,13 @@ class LessonPage extends Component {
           </div>
 
           <div className='row'>
-          <div className='col-8'>
+          <div className='col-12'>
             <div className='card mx-auto my-2' id='question-card'>
               <div className='card-body lesson-card-body'>
                 <h4 className='card-title mx-auto text-center text-white user-text'>Knowledge Check</h4>
-                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} />) : null}
+                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} value={this.state.value} />) : null}
               </div>
             </div>
-          </div>
-
-          <div className='col-4'>
-            {keyboard}
           </div>
 
           </div>
