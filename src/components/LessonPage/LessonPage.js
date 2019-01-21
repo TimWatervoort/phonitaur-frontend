@@ -17,7 +17,9 @@ class LessonPage extends Component {
     if (lesson.lesson_text) {
       let textArr = lesson.lesson_text.split(';');
       if (textArr[textArr.length-1].startsWith('New')){
-        chars = textArr.pop();
+        let charsA = textArr.pop();
+        let charsB = charsA.split(':')[1];
+        chars = charsB.split(',');
       }
       instructions = textArr.map((x,i) => <InstructionCard key={i} text={x} />);
     }
@@ -29,13 +31,22 @@ class LessonPage extends Component {
 
           <div className='row'>
             <div className='col'>
-              <h2 className='my-4 text-center text-white user-text'>{alphabet.name ? alphabet.name : <Redirect to='/home'/>} Lesson 1</h2>
+              <h2 className='mt-4 text-center text-white user-text'>{alphabet.name ? alphabet.name : <Redirect to='/home'/>} Lesson 1</h2>
             </div>
           </div>
 
           <div className='row'>
             <div className='col'>
               <h4 className='my-4 text-center text-white user-text'>{lesson.name ? lesson.name : null}</h4>
+            </div>
+          </div>
+
+          <div className='row'>
+            <div className='card mx-auto my-2' id='lesson-card'>
+              <div className='card-body lesson-card-body'>
+                <h4 className='card-title mx-auto text-center text-white user-text'>New Characters</h4>
+                {chars ? chars.map((x,i) => <span key={i} className='mx-auto user-text text-white'> {x} </span>) : <span className='text-center user-text text-white'>{'None'}</span>}
+              </div>
             </div>
           </div>
 
