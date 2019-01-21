@@ -28,9 +28,7 @@ class LessonList extends Component {
           </div>
 
           <div className='row'>
-            <div className='col'>
               {Array.isArray(lessons) ? lessons.map((x,i) => <LessonCard key={i} alph={alphabet.name} lesson={x}/>) : null}
-            </div>
           </div>
         </div>
       </div>

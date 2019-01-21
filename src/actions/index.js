@@ -9,8 +9,8 @@ export const GETTING_LESSONS = 'GETTING_LESSONS';
 export const GET_LESSONS = 'GET_LESSONS';
 export const GETTING_ALPHABET = 'GETTING_ALPHABET';
 export const GET_ALPHABET = 'GET_ALPHABET';
-export const GETTING_QUESTIONS = 'GETTING_QUESTIONS';
-export const GET_QUESTIONS = 'GET_QUESTIONS';
+export const GETTING_LESSON = 'GETTING_LESSON';
+export const GET_LESSON = 'GET_LESSON';
 
 const apiUrl = 'http://localhost:8000';
 
@@ -65,13 +65,13 @@ export const getAlphabet = id => {
   }
 }
 
-export const getQuestions = id => {
+export const getLesson = id => {
   return async dispatch => {
-    dispatch({type: GETTING_QUESTIONS});
+    dispatch({type: GETTING_LESSON});
     const response = await fetch(`${apiUrl}/lesson/${id}`);
     const json = await response.json();
     dispatch({
-      type: GET_QUESTIONS,
+      type: GET_LESSON,
       payload: json
     });
   }
