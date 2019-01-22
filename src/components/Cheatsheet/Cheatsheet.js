@@ -28,7 +28,7 @@ class Cheatsheet extends Component {
 
     return(
       <div>
-        <Navbar leftButton={'Back to Lesson'} leftLink={`/lesson/${lesson.id}`} rightButton={'All Lessons'} rightLink={`/learn/${alphabet.name}`}/>
+        <Navbar leftButton={'Back to Lesson'} leftLink={`/lesson/${lesson.id}`} rightButton={'All Lessons'} rightLink={`/learn/${match.params.name}`}/>
         <div className='container mb-3'>
           <h2 className='user-text text-center mx-auto my-4 text-white'>{match.params.name} Cheatsheet</h2>
           {match.params.name === 'Arabic' ? <h6 className='user-text text-center mb-4 text-white'>Note: if a character has more than one form, it is shown in isolated position, and then in its in-text positions.</h6> : null}
