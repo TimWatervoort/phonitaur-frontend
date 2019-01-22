@@ -38,7 +38,7 @@ class LessonPage extends Component {
 
     return(
       <div>
-        <Navbar leftButton={'All Lessons'} leftLink={`/learn/${alphabet.name}`} rightButton={'Next Lesson'} rightLink={`lesson/${match.params.id + 1}`} />
+        <Navbar leftButton={'All Lessons'} leftLink={`/learn/${alphabet.name}`} rightButton={'Cheat Sheet'} rightLink={`/sheet/${alphabet.name}`} />
         <div className='container'>
 
           <div className='row'>
