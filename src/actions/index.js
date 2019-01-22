@@ -12,7 +12,7 @@ export const GET_ALPHABET = 'GET_ALPHABET';
 export const GETTING_LESSON = 'GETTING_LESSON';
 export const GET_LESSON = 'GET_LESSON';
 
-const apiUrl = 'http://localhost:8000';
+const apiUrl = 'https://phonitaur-backend.herokuapp.com';
 
 export const getUser = () => {
   return async dispatch => {

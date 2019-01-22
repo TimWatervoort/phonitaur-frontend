@@ -9,7 +9,7 @@ export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
-const apiUrl = 'https://obscure-chamber-92097.herokuapp.com';
+const apiUrl = 'https://phonitaur-backend.herokuapp.com';
 
 export const login = data => {
   return async dispatch => {
