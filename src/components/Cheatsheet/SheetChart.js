@@ -12,7 +12,7 @@ class SheetChart extends Component {
         </div>
 
         <div className='col-4'>
-          <h4 className='user-text text-white'><i class="fas fa-volume-up"></i></h4>
+          <h4 className='user-text text-white'><i className="fas fa-volume-up"></i></h4>
         </div>
 
         <div className='col-4'>
