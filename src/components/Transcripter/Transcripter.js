@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Transcripter.css';
 import Navbar from '../Navbar/Navbar';
+import { dutchToEnglish } from './EnglishDutch';
 
 class Transcripter extends Component {
 
@@ -18,6 +19,14 @@ class Transcripter extends Component {
   handleChange = e => {
     const key = e.target.name;
     this.setState({ [key]: e.target.value });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    if (this.state.from === 'Dutch' && this.state.to === 'English'){
+      const data = dutchToEnglish(this.state.fromText);
+      this.setState({ toText: data })
+    }
   }
 
   render(){
@@ -43,6 +52,7 @@ class Transcripter extends Component {
                     <option>Arabic</option>
                     <option>International Phonetic Alphabet</option>
                     <option>English</option>
+                    <option>Dutch</option>
                   </select>
                   <textarea value={this.state.fromText} onChange={this.handleChange} className='form-control mb-2' name='fromText'/>
 
@@ -53,8 +63,11 @@ class Transcripter extends Component {
                     <option>Arabic</option>
                     <option>International Phonetic Alphabet</option>
                     <option>English</option>
+                    <option>Dutch</option>
                   </select>
-                  <textarea value={this.state.toText} onChange={this.handleChange} className='form-control' name='toText'/>
+                  <textarea value={this.state.toText} readOnly={true} className='form-control' name='toText'/>
+
+                  <button onClick={this.handleSubmit} className='mt-2 btn btn-danger mx-auto text-center'>Transcript!</button>
 
                 </div>
               </div>
