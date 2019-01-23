@@ -53,10 +53,10 @@ export const getLessons = id => {
   }
 }
 
-export const getAlphabet = id => {
+export const getAlphabet = name => {
   return async dispatch => {
     dispatch({type: GETTING_ALPHABET});
-    const response = await fetch(`${apiUrl}/alphabets/${id}`);
+    const response = await fetch(`${apiUrl}/alphabets/${name}`);
     const json = await response.json();
     dispatch({
       type: GET_ALPHABET,

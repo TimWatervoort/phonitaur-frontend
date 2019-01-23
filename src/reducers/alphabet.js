@@ -5,7 +5,7 @@ const alphabet = (state='', action) => {
     case GETTING_ALPHABET:
       return 'Getting alphabet';
     case GET_ALPHABET:
-      return action.payload;
+      return action.payload[0];
     default:
       return state;
   }

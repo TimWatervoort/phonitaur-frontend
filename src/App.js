@@ -10,6 +10,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import AuthHome from './components/AuthHome/AuthHome';
 import Cheatsheet from './components/Cheatsheet/Cheatsheet';
+import Admin from './components/Admin/Admin';
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
         <Route path='/signup' component={Signup}/>
         <Route path='/auth' component={AuthHome}/>
         <Route path='/sheet/:name' component={Cheatsheet}/>
+        <Route path='/adminoclock' component={Admin}/>
       </div>
     );
   }

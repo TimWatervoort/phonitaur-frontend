@@ -23,7 +23,7 @@ class LessonList extends Component {
         <div className='container'>
           <div className='row my-4'>
             <div className='col'>
-              <h3 className='user-text text-center text-white'>{alphabet? alphabet.name: null} Lessons</h3>
+              <h3 className='user-text text-center text-white'>{alphabet ? alphabet.name: null} Lessons</h3>
             </div>
           </div>
 

@@ -43,7 +43,7 @@ class LessonPage extends Component {
 
           <div className='row'>
             <div className='col'>
-              <h2 className='mt-4 text-center text-white user-text'>{alphabet.name ? alphabet.name : <Redirect to='/home'/>} Lesson 1</h2>
+              <h2 className='mt-4 text-center text-white user-text'>{alphabet.name ? alphabet.name : null } Lesson 1</h2>
             </div>
           </div>
 
