@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Transcripter.css';
 import Navbar from '../Navbar/Navbar';
 import { dutchToEnglish, englishToDutch } from './EnglishDutch';
+import { englishToCyrillic, cyrillicToEnglish } from './EnglishCyrillic';
 
 class Transcripter extends Component {
 
@@ -28,6 +29,10 @@ class Transcripter extends Component {
       data = dutchToEnglish(this.state.fromText);
     } else if (this.state.from === 'English' && this.state.to === 'Dutch'){
       data = englishToDutch(this.state.fromText);
+    } else if (this.state.from === 'English' && this.state.to === 'Cyrillic'){
+      data = englishToCyrillic(this.state.fromText);
+    } else if (this.state.from === 'Cyrillic' && this.state.to === 'English'){
+      data = cyrillicToEnglish(this.state.fromText);
     }
     this.setState({ toText: data })
   }
