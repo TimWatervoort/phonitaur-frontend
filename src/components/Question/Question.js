@@ -21,7 +21,7 @@ class Question extends Component {
     e.preventDefault();
     const { question } = this.props;
     const answers = question.answer.split(',');
-    if (answers.includes(this.state.value)){
+    if (answers.includes(this.state.value.toLowerCase())){
       this.setState({ answer: 'bg-green', value: 'Correct!' });
     } else {
       this.setState({ answer: 'bg-red', value: 'Try again.' });
@@ -39,7 +39,7 @@ class Question extends Component {
 
   render() {
 
-    const { question, value } = this.props;
+    const { question } = this.props;
 
     return (
     <div>

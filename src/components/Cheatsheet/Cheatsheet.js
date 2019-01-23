@@ -12,7 +12,7 @@ class Cheatsheet extends Component {
   render() {
 
     let items;
-    const { match, alphabet, lesson } = this.props;
+    const { match, lesson } = this.props;
 
     switch(match.params.name){
       case 'Cyrillic':

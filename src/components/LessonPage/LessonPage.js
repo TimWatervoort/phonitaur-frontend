@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './LessonPage.css';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getLesson } from '../../actions/index';
@@ -23,7 +22,7 @@ class LessonPage extends Component {
 
   render() {
 
-    const { alphabet, match, lesson } = this.props;
+    const { lesson } = this.props;
 
     let instructions = null;
     let chars = null;
@@ -40,12 +39,12 @@ class LessonPage extends Component {
 
     return(
       <div>
-        <Navbar leftButton={'All Lessons'} leftLink={`/learn/${alphabet.name}`} rightButton={'Cheat Sheet'} rightLink={`/sheet/${alphabet.name}`} />
+        <Navbar leftButton={'All Lessons'} leftLink={`/learn/${lesson.language}`} rightButton={'Cheat Sheet'} rightLink={`/sheet/${lesson.language}`} />
         <div className='container'>
 
           <div className='row'>
             <div className='col'>
-              <h2 className='mt-4 text-center text-white user-text'>{alphabet.name ? alphabet.name : null } Lesson 1</h2>
+              <h2 className='mt-4 text-center text-white user-text'>{lesson.language ? lesson.language : null } Lesson {lesson.level ? lesson.level : null}</h2>
             </div>
           </div>
 
