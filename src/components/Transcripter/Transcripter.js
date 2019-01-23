@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Transcripter.css';
 import Navbar from '../Navbar/Navbar';
-import { dutchToEnglish } from './EnglishDutch';
+import { dutchToEnglish, englishToDutch } from './EnglishDutch';
 
 class Transcripter extends Component {
 
@@ -23,10 +23,13 @@ class Transcripter extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    let data;
     if (this.state.from === 'Dutch' && this.state.to === 'English'){
-      const data = dutchToEnglish(this.state.fromText);
-      this.setState({ toText: data })
+      data = dutchToEnglish(this.state.fromText);
+    } else if (this.state.from === 'English' && this.state.to === 'Dutch'){
+      data = englishToDutch(this.state.fromText);
     }
+    this.setState({ toText: data })
   }
 
   render(){
