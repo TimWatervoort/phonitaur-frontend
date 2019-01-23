@@ -48,7 +48,7 @@ class Question extends Component {
         <input value={this.state.value} onChange={this.handleChange} className={`form-control ${this.state.answer}`} placeholder='type your answer' autoComplete='off'/>
       </form>
 
-      <button onClick={this.toggleKeys} className='btn btn-danger mt-1 mb-4'><i class="fas fa-keyboard"></i></button>
+      <button onClick={this.toggleKeys} className='btn btn-danger mt-1 mb-4'><i className="fas fa-keyboard"></i></button>
       <button onClick={this.checkAnswer} className='btn btn-danger user-text mt-1 mb-4 mx-1'>Submit</button>
       <div hidden={this.state.hidden}>
         <CyrillicKeyboard fkb={this.addToInput}/>

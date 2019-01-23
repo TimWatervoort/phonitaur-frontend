@@ -12,6 +12,8 @@ class LessonPage extends Component {
 
   constructor(props) {
     super(props);
+    const { match, getLesson } = this.props
+    getLesson(match.params.id)
     this.state = {value: ''}
   }
 

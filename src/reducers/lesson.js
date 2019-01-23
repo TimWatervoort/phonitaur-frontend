@@ -5,7 +5,7 @@ const lesson = (state='', action) => {
     case GETTING_LESSON:
       return 'Getting lesson.';
     case GET_LESSON:
-      return action.payload[0];
+      return action.payload;
     default:
       return state;
   }

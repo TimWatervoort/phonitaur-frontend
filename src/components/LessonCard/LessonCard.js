@@ -16,7 +16,6 @@ class LessonCard extends Component {
   }
 
   redirectToLesson() {
-    this.props.getLesson(this.props.lesson.id);
     this.setState({clicked: true});
   }
 
