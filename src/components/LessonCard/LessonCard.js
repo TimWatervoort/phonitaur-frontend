@@ -26,7 +26,7 @@ class LessonCard extends Component {
     return(
       <div className='col-lg-4 col-md-12'>
         {this.state.clicked ? <Redirect to={`/lesson/${lesson.id}`}/> : null}
-        <div onClick={this.redirectToLesson} className='card' id='lesson-card'>
+        <div onClick={this.redirectToLesson} className='card my-2' id='lesson-card'>
           <div className='card-body lesson-card-body'>
             <h4 className='card-title text-white user-text'>{lesson.name}</h4>
             <h5 className='card-subtitle text-grey user-text'>{alph} Lesson {lesson.level}</h5>

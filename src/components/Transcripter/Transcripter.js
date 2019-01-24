@@ -11,8 +11,8 @@ class Transcripter extends Component {
   constructor(props){
     super(props);
     this.state = {
-      from: 'Select an alphabet',
-      to: 'Select an alphabet',
+      from: '--Select an alphabet--',
+      to: '--Select an alphabet--',
       fromText: '',
       toText: ''
     }
@@ -25,6 +25,7 @@ class Transcripter extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state);
     let data;
     if (this.state.from === 'Dutch' && this.state.to === 'English'){
       data = dutchToEnglish(this.state.fromText);
@@ -38,6 +39,8 @@ class Transcripter extends Component {
       data = englishToArabic(this.state.fromText);
     } else if (this.state.from === 'Arabic' && this.state.to === 'English'){
       data = arabicToEnglish(this.state.fromText);
+    } else {
+      data = 'Unfortunately, this transcripter isn\'t up yet!';
     }
     this.setState({ toText: data })
   }
@@ -61,9 +64,9 @@ class Transcripter extends Component {
                 <div className='card-body trans-card-body'>
                   <h5 className='trans-header text-white'>From:</h5>
                   <select name='from' value={this.state.from} onChange={this.handleChange} className='trans-header form-control my-1'>
+                    <option disabled defaultValue>--Select an alphabet--</option>
                     <option>Cyrillic</option>
                     <option>Arabic</option>
-                    <option>International Phonetic Alphabet</option>
                     <option>English</option>
                     <option>Dutch</option>
                   </select>
@@ -72,9 +75,9 @@ class Transcripter extends Component {
 
                   <h5 className='trans-header text-white'>To:</h5>
                   <select name='to' value={this.state.to} onChange={this.handleChange} className='trans-header form-control my-1'>
+                    <option disabled defaultValue>--Select an alphabet--</option>
                     <option>Cyrillic</option>
                     <option>Arabic</option>
-                    <option>International Phonetic Alphabet</option>
                     <option>English</option>
                     <option>Dutch</option>
                   </select>
