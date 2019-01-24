@@ -23,7 +23,18 @@ class CyrillicKeyboard extends Component {
 
   render() {
 
-    let alphabet = ['Е', 'А', 'О', 'Ю', 'Ё', 'Ь', 'Ы', 'Я', 'И', 'Й', 'У', 'Э', 'В', 'Г', 'Д', 'Ж', 'З', 'Р', 'С', 'Т', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Б', 'Џ', 'К', 'Л', 'М', 'Н', 'П'];
+    const { alph } = this.props;
+
+    let cyrillic = ['Е', 'А', 'О', 'Ю', 'Ё', 'Ь', 'Ы', 'Я', 'И', 'Й', 'У', 'Э', 'В', 'Г', 'Д', 'Ж', 'З', 'Р', 'С', 'Т', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Б', 'Џ', 'К', 'Л', 'М', 'Н', 'П'];
+
+    let arabic = ['ا','ى','ي','و','ب','ة','ه','ع','ظ','ط','ض','ص','ش','س','ز','ر','ذ','د','ن','م','ل','ك','ق','ف','ج','خ','ح','ث','ت','غ', 'ء'];
+
+    let alphabet;
+    if (alph === 'Cyrillic') {
+      alphabet = cyrillic;
+    } else if (alph === 'Arabic') {
+      alphabet = arabic;
+    }
 
     if (this.state.case === 'lower') {
       for (var i = 0; i < alphabet.length; i++) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Question.css';
-import CyrillicKeyboard from '../Keyboards/CyrillicKeyboard'
+import Keyboard from '../Keyboards/Keyboard';
 
 class Question extends Component {
 
@@ -39,7 +39,8 @@ class Question extends Component {
 
   render() {
 
-    const { question } = this.props;
+    const { question, alph } = this.props;
+
 
     return (
     <div>
@@ -51,7 +52,7 @@ class Question extends Component {
       <button onClick={this.toggleKeys} className='btn btn-danger mt-1 mb-4'><i className="fas fa-keyboard"></i></button>
       <button onClick={this.checkAnswer} className='btn btn-danger user-text mt-1 mb-4 mx-1'>Submit</button>
       <div hidden={this.state.hidden}>
-        <CyrillicKeyboard fkb={this.addToInput}/>
+        <Keyboard fkb={this.addToInput} alph={alph} />
       </div>
     </div>
     )

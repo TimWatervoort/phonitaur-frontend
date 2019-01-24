@@ -72,7 +72,7 @@ class LessonPage extends Component {
             <div className='card mx-auto my-2' id='question-card'>
               <div className='card-body lesson-card-body'>
                 <h4 className='card-title mx-auto text-center text-white user-text'>Knowledge Check</h4>
-                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} value={this.state.value} />) : null}
+                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} alph={lesson.language} value={this.state.value} />) : null}
               </div>
             </div>
           </div>
