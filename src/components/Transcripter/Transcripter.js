@@ -4,6 +4,7 @@ import './Transcripter.css';
 import Navbar from '../Navbar/Navbar';
 import { dutchToEnglish, englishToDutch } from './EnglishDutch';
 import { englishToCyrillic, cyrillicToEnglish } from './EnglishCyrillic';
+import { englishToArabic, arabicToEnglish } from './EnglishArabic';
 
 class Transcripter extends Component {
 
@@ -33,6 +34,10 @@ class Transcripter extends Component {
       data = englishToCyrillic(this.state.fromText);
     } else if (this.state.from === 'Cyrillic' && this.state.to === 'English'){
       data = cyrillicToEnglish(this.state.fromText);
+    } else if (this.state.from === 'English' && this.state.to === 'Arabic'){
+      data = englishToArabic(this.state.fromText);
+    } else if (this.state.from === 'Arabic' && this.state.to === 'English'){
+      data = arabicToEnglish(this.state.fromText);
     }
     this.setState({ toText: data })
   }
