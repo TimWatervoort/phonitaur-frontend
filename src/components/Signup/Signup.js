@@ -64,7 +64,7 @@ class Signup extends Component {
 
     const { auth } = this.props;
 
-    const signupError = <div className='row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Signing Up</h5></div>
+    const signupError = <div className='mb-2 row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Signing Up</h5></div>
 
     return(
       <div>

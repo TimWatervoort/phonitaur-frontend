@@ -38,7 +38,7 @@ class Login extends Component {
 
     const { auth } = this.props;
 
-    const loginError = <div className='row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Logging In</h5></div>
+    const loginError = <div className='mb-2 row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Logging In</h5></div>
 
     return(
       <div>
