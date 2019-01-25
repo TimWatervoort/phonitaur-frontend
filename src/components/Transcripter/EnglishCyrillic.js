@@ -51,7 +51,7 @@ export const englishToCyrillic = input => {
         result += 'г';
         break;
       case 'h':
-        if (['c','k','s','z'].includes(input[i-1])) {
+        if (['c','k','s','t','z'].includes(input[i-1])) {
           break;
         } else {
           result += 'х';
