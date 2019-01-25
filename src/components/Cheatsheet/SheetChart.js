@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SheetChart extends Component {
 
   playAudio = async e => {
-    var audio = new Audio(`http://localhost:3050/ipa/${this.props.item.ipa}`);
+    var audio = new Audio(`https://phonitaur-speech.herokuapp.com/ipa/${this.props.item.ipa}`);
     audio.play();
   }
 
