@@ -29,7 +29,7 @@ class CyrillicKeyboard extends Component {
 
     let arabic = ['ا','ى','ي','و','ب','ة','ه','ع','ظ','ط','ض','ص','ش','س','ز','ر','ذ','د','ن','م','ل','ك','ق','ف','ج','خ','ح','ث','ت','غ', 'ء'];
 
-    let alphabet;
+    let alphabet = null;
     if (alph === 'Cyrillic') {
       alphabet = cyrillic;
     } else if (alph === 'Arabic') {
