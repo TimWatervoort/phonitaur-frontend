@@ -15,15 +15,18 @@ class LessonList extends Component {
   }
 
   render() {
-    const { lessons, alphabet } = this.props;
+    const { lessons, alphabet, match } = this.props;
 
     return (
       <div>
         <Navbar leftButton={'My Profile'} leftLink={'/home'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div className='container'>
+
+        {lessons === 'Getting lessons' ? <h1 className='spinnyBoi mt-5 text-center mx-auto user-text text-white'> <i className="fas fa-cog"></i> </h1> : null}
+
           <div className='row my-4'>
             <div className='col'>
-              <h3 className='user-text text-center text-white'>{alphabet ? alphabet.name: null} Lessons</h3>
+              <h3 className='user-text text-center text-white'>{Array.isArray(lessons) ? `${match.params.id} Lessons`: null}</h3>
             </div>
           </div>
 

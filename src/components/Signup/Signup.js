@@ -64,6 +64,8 @@ class Signup extends Component {
 
     const { auth } = this.props;
 
+    const signupError = <div className='row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Signing Up</h5></div>
+
     return(
       <div>
         <Navbar leftButton={'Back To Home'} leftLink={'/'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
@@ -78,6 +80,7 @@ class Signup extends Component {
                 <div className='card-body user-card-body'>
 
                   <h3 className='mb-4 card-title user-text text-white text-center'>Sign Up</h3>
+                  {auth === 'Signup failure.' ? signupError : null}
 
                   <form onSubmit={this.sendSignup}>
 

@@ -17,6 +17,7 @@ class Transcripter extends Component {
       toText: ''
     }
   }
+  
 
   handleChange = e => {
     const key = e.target.name;

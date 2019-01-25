@@ -38,6 +38,8 @@ class Login extends Component {
 
     const { auth } = this.props;
 
+    const loginError = <div className='row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Logging In</h5></div>
+
     return(
       <div>
         <Navbar leftButton={'Back To Home'} leftLink={'/'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
@@ -52,6 +54,7 @@ class Login extends Component {
                 <div className='card-body user-card-body'>
 
                   <h3 className='mb-4 card-title user-text text-white text-center'>Login</h3>
+                  {auth === 'Login failure.' ? loginError : null}
 
                   <form onSubmit={this.sendLogin}>
 

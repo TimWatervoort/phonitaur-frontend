@@ -90,6 +90,8 @@ class Home extends Component {
         <Navbar leftButton={'Log Out'} leftLink={'/home'} rightButton={'Transcripter'} rightLink={'/transcripter'}/>
         <div className='container'>
 
+        {user === 'Getting user' ? <h1 className='spinnyBoi mt-5 text-center mx-auto user-text text-white'> <i className="fas fa-cog"></i> </h1> : null}
+
           <div className='row'>
 
             {!Cookies.get('phonitoken') ? <Redirect to='/' /> : null}

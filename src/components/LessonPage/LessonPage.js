@@ -42,6 +42,8 @@ class LessonPage extends Component {
         <Navbar leftButton={'All Lessons'} leftLink={`/learn/${lesson.language}`} rightButton={'Cheat Sheet'} rightLink={`/sheet/${lesson.language}`} />
         <div className='container'>
 
+        {lesson === 'Getting lesson.' ? <h1 className='spinnyBoi mt-5 text-center mx-auto user-text text-white'> <i className="fas fa-cog"></i> </h1> : null}
+
           <div className='row'>
             <div className='col'>
               <h2 className='mt-4 text-center text-white user-text'>{lesson.language ? lesson.language : null } Lesson {lesson.level ? lesson.level : null}</h2>
