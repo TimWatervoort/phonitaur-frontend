@@ -21,3 +21,15 @@
 ::placeholder {
   color: #efb6ac !important;
 }
+
+.drop-form{
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: white !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.sel-text {
+  color: black !important;
+}

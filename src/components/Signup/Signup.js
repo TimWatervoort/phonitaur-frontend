@@ -15,7 +15,7 @@ class Signup extends Component {
       password: '',
       confPassword: '',
       email: '',
-      mother_alphabet: '',
+      mother_alphabet: '--Select an alphabet--',
       img: ''
     }
   }
@@ -125,7 +125,20 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Your Mother Alphabet:</h5>
                       </div>
                       <div className='col-8'>
-                        <input className='sign-form form-control' value={this.state.mother_alphabet} onChange={this.setValue} name='mother_alphabet' autoComplete='off' type='text' placeholder='mother alphabet' required/>
+                        <select className='drop-form form-control' value={this.state.mother_alphabet} onChange={this.setValue} name='mother_alphabet' autoComplete='off' type='text' required>
+                          <option disabled> --Select an alphabet--</option>
+                          <option className='sel-text'>Latin</option>
+                          <option className='sel-text'>Cyrillic</option>
+                          <option className='sel-text'>Arabic</option>
+                          <option className='sel-text'>Devanagari</option>
+                          <option className='sel-text'>Greek</option>
+                          <option className='sel-text'>Lao</option>
+                          <option className='sel-text'>Khmer</option>
+                          <option className='sel-text'>Hangul</option>
+                          <option className='sel-text'>Chinese</option>
+                          <option className='sel-text'>Japanese</option>
+                          <option className='sel-text'>Other</option>
+                        </select>
                       </div>
                     </div>
 
