@@ -23,6 +23,7 @@ class Question extends Component {
     const answers = question.answer.split(',');
     if (answers.includes(this.state.value.toLowerCase())){
       this.setState({ answer: 'bg-green', value: 'Correct!' });
+      this.answer();
     } else {
       this.setState({ answer: 'bg-red', value: 'Try again.' });
     }
@@ -35,6 +36,10 @@ class Question extends Component {
   addToInput = val => {
     let newVal = `${this.state.value}${val}`;
     this.setState({ value: newVal });
+  }
+
+  answer(){
+    this.props.answer(this.props.question.id);
   }
 
   render() {

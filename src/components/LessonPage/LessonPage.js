@@ -6,6 +6,7 @@ import { getLesson } from '../../actions/index';
 import Navbar from '../Navbar/Navbar';
 import InstructionCard from '../InstructionCard/InstructionCard';
 import Question from '../Question/Question';
+import { Redirect, Link } from 'react-router-dom';
 
 class LessonPage extends Component {
 
@@ -13,16 +14,25 @@ class LessonPage extends Component {
     super(props);
     const { match, getLesson } = this.props
     getLesson(match.params.id)
-    this.state = {value: ''}
+    this.state = {value: '', correct: [], next:false}
+    this.toNext = this.toNext.bind(this);
   }
 
   handleKeyboard = val => {
     this.setState({value: val});
   }
 
+  questionAnswered = item => {
+    this.setState({correct: [...this.state.correct, item]});
+  }
+
+  toNext() {
+    getLesson(parseInt(this.props.match.params.id) + 1);
+  }
+
   render() {
 
-    const { lesson } = this.props;
+    const { lesson, match } = this.props;
 
     let instructions = null;
     let chars = null;
@@ -37,10 +47,17 @@ class LessonPage extends Component {
       instructions = textArr.map((x,i) => <InstructionCard key={i} text={x} />);
     }
 
+    let nextLesson = null;
+    if (lesson.questions && this.state.correct.length === lesson.questions.length) {
+      nextLesson = <Link to={`/learn/${lesson.language}`} className='user-text btn btn-danger'>Back to Lessons</Link>;
+    }
+
     return(
       <div>
         <Navbar leftButton={'All Lessons'} leftLink={`/learn/${lesson.language}`} rightButton={'Cheat Sheet'} rightLink={`/sheet/${lesson.language}`} />
         <div className='container'>
+
+        {this.state.next ? <Redirect to={`/lesson/${lesson.id+1}`}/> : null}
 
         {lesson === 'Getting lesson.' ? <h1 className='spinnyBoi mt-5 text-center mx-auto user-text text-white'> <i className="fas fa-cog"></i> </h1> : null}
 
@@ -74,8 +91,14 @@ class LessonPage extends Component {
             <div className='card mx-auto my-2' id='question-card'>
               <div className='card-body lesson-card-body'>
                 <h4 className='card-title mx-auto text-center text-white user-text'>Knowledge Check</h4>
-                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} alph={lesson.language} value={this.state.value} />) : null}
+                {lesson.questions ? lesson.questions.map((x,i) => <Question key={i} question={x} alph={lesson.language} answer={this.questionAnswered}/>) : null}
               </div>
+            </div>
+          </div>
+
+          <div className='row my-4 mx-auto'>
+            <div className='col'>
+              {nextLesson}
             </div>
           </div>
 
