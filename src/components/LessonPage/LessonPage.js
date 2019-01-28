@@ -14,27 +14,40 @@ class LessonPage extends Component {
     super(props);
     const { match, getLesson } = this.props
     getLesson(match.params.id)
-    this.state = {value: '', correct: [], next:false}
-    this.toNext = this.toNext.bind(this);
-  }
-
-  handleKeyboard = val => {
-    this.setState({value: val});
+    this.state = {correct: [], inst: 0, instLen: 0}
+    this.lessonUp = this.lessonUp.bind(this);
+    this.lessonDown = this.lessonDown.bind(this);
   }
 
   questionAnswered = item => {
     this.setState({correct: [...this.state.correct, item]});
   }
 
-  toNext() {
-    getLesson(parseInt(this.props.match.params.id) + 1);
+  lessonUp(len) {
+    let curLes = this.state.inst;
+    if (curLes+1 === len) {
+      curLes = 0;
+    } else {
+      curLes++;
+    }
+    this.setState({inst: curLes});
+  }
+
+  lessonDown(len) {
+    let curLes = this.state.inst;
+    if (curLes === 0) {
+      curLes = len-1;
+    } else {
+      curLes--;
+    }
+    this.setState({inst: curLes});
   }
 
   render() {
 
-    const { lesson, match } = this.props;
+    const { lesson } = this.props;
 
-    let instructions = null;
+    let instructions = null, instLen = 0;
     let chars = null;
 
     if (lesson.lesson_text) {
@@ -45,6 +58,7 @@ class LessonPage extends Component {
         chars = charsB.split(',');
       }
       instructions = textArr.map((x,i) => <InstructionCard key={i} text={x} />);
+      instLen = instructions.length;
     }
 
     let nextLesson = null;
@@ -83,7 +97,15 @@ class LessonPage extends Component {
           </div>
 
           <div className='row'>
-            {instructions}
+            {instructions ? instructions[this.state.inst] : null }
+          </div>
+          <div className='row'>
+            <div className='col'>
+              <button onClick={() => this.lessonDown(instLen)} className='user-text text-center instro-btn btn btn-danger'>Previous</button>
+            </div>
+            <div className='col'>
+              <button onClick={() => this.lessonUp(instLen)} className='user-text text-center instro-btn btn btn-danger'>Next</button>
+            </div>
           </div>
 
           <div className='row'>
