@@ -46,6 +46,11 @@ class Question extends Component {
 
     const { question, alph } = this.props;
 
+    let keyboardButton = null, keyboard = null;
+    if (['Cyrillic', 'Arabic'].includes(alph)){
+      keyboardButton = <button onClick={this.toggleKeys} className='sub-but btn btn-danger mt-1 mb-4'><i className="fas fa-keyboard"></i></button>
+      keyboard = <Keyboard fkb={this.addToInput} alph={alph} />
+    }
 
     return (
     <div>
@@ -54,10 +59,10 @@ class Question extends Component {
         <input value={this.state.value} onChange={this.handleChange} className={`form-control ${this.state.answer}`} placeholder='type your answer' autoComplete='off'/>
       </form>
 
-      {alph !== 'Dutch' ? <button onClick={this.toggleKeys} className='sub-but btn btn-danger mt-1 mb-4'><i className="fas fa-keyboard"></i></button> : null}
+      {keyboardButton}
       <button onClick={this.checkAnswer} className='sub-but btn btn-danger mt-1 mb-4 mx-1'>Submit</button>
       <div hidden={this.state.hidden}>
-        {alph !== 'Dutch' ? <Keyboard fkb={this.addToInput} alph={alph} /> : null}
+        {keyboard}
       </div>
     </div>
     )

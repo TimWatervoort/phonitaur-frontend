@@ -63,7 +63,7 @@ class LessonPage extends Component {
 
     let nextLesson = null;
     if (lesson.questions && this.state.correct.length === lesson.questions.length) {
-      nextLesson = <Link to={`/learn/${lesson.language}`} className='user-text btn btn-danger'>Back to Lessons</Link>;
+      nextLesson = <Link to={`/learn/${lesson.language}`} className='instro-btn btn btn-danger'>Back to Lessons</Link>;
     }
 
     return(

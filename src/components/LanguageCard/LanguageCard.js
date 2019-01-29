@@ -7,6 +7,7 @@ import { getLessons, updateCourses } from '../../actions/index';
 import arabia from '../../images/arabia.jpg';
 import holland from '../../images/holland.jpg';
 import russia from '../../images/russia.jpg';
+import ipa from '../../images/ipa.jpg';
 
 class LanguageCard extends Component {
 
@@ -34,6 +35,7 @@ class LanguageCard extends Component {
     if (alphabet.name === 'Cyrillic') image = russia;
     if (alphabet.name === 'Arabic') image = arabia;
     if (alphabet.name === 'Dutch') image = holland;
+    if (alphabet.name === 'International Phonetic Alphabet') image = ipa;
 
     let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add Course</button>;
 
