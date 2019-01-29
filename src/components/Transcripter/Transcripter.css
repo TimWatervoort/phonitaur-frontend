@@ -14,3 +14,8 @@
 #trans-card{
   background-color: rgba(0,0,0,0);
 }
+
+.btn-text{
+  font-family: 'Staatliches', cursive;
+  font-size: 20px !important;
+}

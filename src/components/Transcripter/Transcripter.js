@@ -84,7 +84,7 @@ class Transcripter extends Component {
                   </select>
                   <textarea value={this.state.toText} readOnly={true} className='form-control' name='toText'/>
 
-                  <button onClick={this.handleSubmit} className='mt-2 btn btn-danger mx-auto text-center'>Transcript!</button>
+                  <button onClick={this.handleSubmit} className='mt-2 btn btn-danger mx-auto text-center btn-text'>Transcript!</button>
 
                 </div>
               </div>
