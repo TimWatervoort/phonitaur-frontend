@@ -30,16 +30,7 @@ class Landing extends Component {
             <Link to={Cookies.get('phonitoken') ? '/home' : '/auth'} ><button className='enter-button btn'>Learn</button></Link>
           </div>
         </div>
-        <div className='row'>
-          <div className='col text-center'>
-            <span className='mb-0 or'> or </span>
-          </div>
-        </div>
-        <div className='row mb-5'>
-          <div className='col text-center'>
-            <Link to='/transcripter'><button className='enter-button btn'>Transcript</button></Link>
-          </div>
-        </div>
+
 
         </div>
       </div>

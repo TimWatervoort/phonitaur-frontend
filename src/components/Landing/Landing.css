@@ -9,6 +9,7 @@
   color: white !important;
   font-family: 'Staatliches', cursive;
   min-width: 150px;
+  font-size: 30px !important;
 }
 
 .enter-button:hover {
