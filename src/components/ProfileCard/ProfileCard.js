@@ -18,9 +18,8 @@ class ProfileCard extends Component {
               </div>
               <div className='col-8 text-left'>
                 <h3 id='username' className='text-white user-text'>{user.username}</h3>
-                <h4 className='text-grey card-subtitle user-text'>{user.mother_alphabet} Alphabet User</h4>
+                <h4 className='text-grey card-subtitle user-text'>Hails from the lands of the great {user.mother_alphabet} alphabet</h4>
                 <p className='text-white mt-3 card-text user-text'>Alphabets learning: {user.languages ? user.languages.length : null}</p>
-                <p className='text-white mt-3 card-text user-text'>Alphabets learned: 0</p>
               </div>
             </div>
 
