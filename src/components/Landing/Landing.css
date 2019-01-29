@@ -9,8 +9,6 @@
   color: white !important;
   font-family: 'Staatliches', cursive;
   min-width: 150px;
-  border-radius: 20%;
-  border: 2px solid grey;
 }
 
 .enter-button:hover {

@@ -33,3 +33,7 @@
 .sel-text {
   color: black !important;
 }
+
+.btn-text {
+  font-family: 'Staatliches', cursive;
+}

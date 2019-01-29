@@ -2,10 +2,11 @@
   background-color: rgba(173, 15, 36, 0.5);
   border: none;
 }
-.user-text {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
 
 #user-card {
   background-color: rgba(0, 0, 0, 0);
+}
+
+.btn-text {
+  font-family: 'Staatliches', cursive;
 }

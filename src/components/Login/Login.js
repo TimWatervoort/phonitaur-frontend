@@ -78,7 +78,7 @@ class Login extends Component {
 
                     <div className='row mt-4'>
                       <button type='submit'
-                       className='mx-auto btn btn-danger user-text'>Submit</button>
+                       className='mx-auto btn btn-danger btn-text'>Submit</button>
                     </div>
 
                   </form>
@@ -89,7 +89,7 @@ class Login extends Component {
                 <p className='text-white user-text mx-auto'>Don't have an account?</p>
               </div>
 
-              <div className='row'>
+              <div className='row mb-5'>
                 <Link to='/signup' className='mx-auto text-white user-text'>Sign Up</Link>
               </div>
 
