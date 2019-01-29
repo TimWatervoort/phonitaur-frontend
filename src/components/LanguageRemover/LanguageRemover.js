@@ -21,7 +21,7 @@ class LanguageRemover extends Component {
 
     const { alphabet } = this.props;
 
-    let button = <button onClick={this.remove} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Remove Course</button>;
+    let button = <button onClick={this.remove} className='mt-auto mx-auto cont-button btn btn-danger btn-text'>Remove Course</button>;
 
     return(
       <div className='col-lg-4 col-md-6 col-sm-12'>

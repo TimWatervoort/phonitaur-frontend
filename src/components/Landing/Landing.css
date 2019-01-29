@@ -5,9 +5,9 @@
 }
 
 .enter-button {
-  background-color: rgba(173, 15, 36, 0.5);
-  color: white;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: rgba(173, 15, 36, 0.5) !important;
+  color: white !important;
+  font-family: 'Staatliches', cursive;
   min-width: 150px;
   border-radius: 20%;
   border: 2px solid grey;
@@ -18,7 +18,7 @@
 }
 
 .phon-header {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Staatliches', cursive;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -29,7 +29,7 @@
 }
 
 .phon-second {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Ubuntu', sans-serif !important;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -41,7 +41,7 @@
 }
 
 .phon-third {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Ubuntu', sans-serif !important;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -66,4 +66,5 @@
 
 .or {
   color: rgba(193, 207, 244, 0.8);
+  font-family: 'Staatliches', cursive;
 }

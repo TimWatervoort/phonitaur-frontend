@@ -14,10 +14,10 @@ class ProfileCard extends Component {
 
             <div className='row'>
               <div className='col-4'>
-                <img className="user-img" src={user.img ? user.img : minotaur} alt="User"/>
+                <img className="user-img img-fluid" src={user.img ? user.img : minotaur} alt="User"/>
               </div>
               <div className='col-8 text-left'>
-                <h3 className='text-white card-title user-text'>{user.username}</h3>
+                <h3 id='username' className='text-white user-text'>{user.username}</h3>
                 <h4 className='text-grey card-subtitle user-text'>{user.mother_alphabet} Alphabet User</h4>
                 <p className='text-white mt-3 card-text user-text'>Alphabets learning: {user.languages ? user.languages.length : null}</p>
                 <p className='text-white mt-3 card-text user-text'>Alphabets learned: 0</p>

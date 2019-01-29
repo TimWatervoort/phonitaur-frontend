@@ -1,5 +1,9 @@
 .trans-header{
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Staatliches', cursive;
+}
+
+.trans-text {
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .trans-card-body {

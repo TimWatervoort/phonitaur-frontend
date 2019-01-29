@@ -7,3 +7,12 @@
   background-color: red !important;
   color: white !important;
 }
+
+.sub-but{
+  font-family: 'Staatliches', cursive;
+  font-size: 20px !important;
+}
+
+.q-but{
+  height: 30px !important;
+}

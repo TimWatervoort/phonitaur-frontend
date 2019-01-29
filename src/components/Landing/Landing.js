@@ -11,10 +11,10 @@ class Landing extends Component {
         <div className='container'>
         <div className='row mb-5'>
           <div className='col'>
-            <h1 className='phon-header text-center'>Phonitaur</h1>
+            <h1 className='phon-header text-center'>P h o n i t a u r</h1>
             <h1 className='phon-second text-center'>фонитюр</h1>
             <h1 className='phon-third text-center'>fɑnɪtɔɹ</h1>
-            <h1 className='phon-fourth text-center'>فنيتار</h1>
+            <h1 className='mb-5 phon-fourth text-center'>فنيتار</h1>
           </div>
         </div>
 
@@ -26,7 +26,7 @@ class Landing extends Component {
 
         <div className='row mt-0'>
           <div className='col text-center'>
-            <Link to={Cookies.get('phonitoken') ? '/home' : '/auth'} ><button className='enter-button'>Enter Site</button></Link>
+            <Link to={Cookies.get('phonitoken') ? '/home' : '/auth'} ><button className='enter-button btn'>Learn</button></Link>
           </div>
         </div>
         <div className='row'>
@@ -34,9 +34,9 @@ class Landing extends Component {
             <span className='mb-0 or'> or </span>
           </div>
         </div>
-        <div className='row'>
+        <div className='row mb-5'>
           <div className='col text-center'>
-            <Link to='/transcripter'><button className='enter-button'>Enter Transcripter</button></Link>
+            <Link to='/transcripter'><button className='enter-button btn'>Transcript</button></Link>
           </div>
         </div>
 

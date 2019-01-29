@@ -101,9 +101,9 @@ class Home extends Component {
             <div className='col-lg-4 col-md-12'>
               <div id='linksCard' className='card user-card mt-4'>
                 <div className='card-body user-card-body'>
-                  <Link to='/catalog' className='links-btn mt-3 user-text btn btn-danger'>View Course Catalog</Link>
-                  <button onClick={this.toggleEdit} className='links-btn mt-3 user-text btn btn-danger'>{this.state.editOn ? 'Done Editing' : 'Edit Profile'}</button>
-                  <button onClick={this.toggleRemoval} className='links-btn my-3 user-text btn btn-danger'>{this.state.removalOn ? 'Done Removing' : 'Remove a Course'}</button>
+                  <Link to='/catalog' className='links-btn mt-4 btn-text btn btn-danger'>View Course Catalog</Link>
+                  <button onClick={this.toggleEdit} className='links-btn mt-3 btn-text btn btn-danger'>{this.state.editOn ? 'Done Editing' : 'Edit Profile'}</button>
+                  <button onClick={this.toggleRemoval} className='links-btn my-3 btn-text btn btn-danger'>{this.state.removalOn ? 'Done Removing' : 'Remove a Course'}</button>
                 </div>
               </div>
             </div>

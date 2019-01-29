@@ -100,11 +100,11 @@ class LessonPage extends Component {
             {instructions ? instructions[this.state.inst] : null }
           </div>
           <div className='row'>
-            <div className='col'>
-              <button onClick={() => this.lessonDown(instLen)} className='user-text text-center instro-btn btn btn-danger'>Previous</button>
+            <div className='col mb-2'>
+              <button onClick={() => this.lessonDown(instLen)} className='text-center instro-btn btn btn-danger'>Previous</button>
             </div>
             <div className='col'>
-              <button onClick={() => this.lessonUp(instLen)} className='user-text text-center instro-btn btn btn-danger'>Next</button>
+              <button onClick={() => this.lessonUp(instLen)} className='text-center instro-btn btn btn-danger'>Next</button>
             </div>
           </div>
 

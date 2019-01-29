@@ -19,17 +19,25 @@ class Navbar extends Component {
 
     let leftSide;
     if (leftButton === 'Log Out') {
-      leftSide = <button onClick={this.sendLogout} className='btn nav-head nav-but mx-auto'>Log Out</button>;
+      leftSide = <button onClick={this.sendLogout} className='btn nav-head nav-but'>Log Out</button>;
     } else {
-      leftSide = <Link to={leftLink} className='nav-head nav-but mx-auto'>{leftButton}</Link>;
+      leftSide = <Link to={leftLink} className='nav-head nav-but'>{leftButton}</Link>;
     }
 
     return(
       <div>
         <nav className='navbar my-nav'>
-          {leftSide}
-          <Link to='/' className='mx-auto nav-head nav-but nav-top'>PHONITAUR</Link>
-          <Link to={rightLink} className='nav-head nav-but mx-auto'>{rightButton}</Link>
+          <div className='container'>
+            <div className='col-4 text-center'>
+              {leftSide}
+            </div>
+            <div className='col-4 text-center'>
+              <Link to='/' className='nav-title nav-but'>phonitaur</Link>
+            </div>
+            <div className='col-4 text-center'>
+              <Link to={rightLink} className='nav-head nav-but'>{rightButton}</Link>
+            </div>
+          </div>
         </nav>
       </div>
 

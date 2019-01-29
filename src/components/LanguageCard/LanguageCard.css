@@ -14,7 +14,11 @@
 }
 
 .lang-text {
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+.btn-text {
+  font-family: 'Staatliches', cursive;
 }
 
 .cont-button {

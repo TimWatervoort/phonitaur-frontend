@@ -17,7 +17,7 @@ class Transcripter extends Component {
       toText: ''
     }
   }
-  
+
 
   handleChange = e => {
     const key = e.target.name;
@@ -63,8 +63,8 @@ class Transcripter extends Component {
             <div className='col'>
               <div className='card' id='trans-card'>
                 <div className='card-body trans-card-body'>
-                  <h5 className='trans-header text-white'>From:</h5>
-                  <select name='from' value={this.state.from} onChange={this.handleChange} className='trans-header form-control my-1'>
+                  <h5 className='trans-text text-white'>From:</h5>
+                  <select name='from' value={this.state.from} onChange={this.handleChange} className='trans-text form-control my-1'>
                     <option disabled defaultValue>--Select an alphabet--</option>
                     <option>Cyrillic</option>
                     <option>Arabic</option>
@@ -74,8 +74,8 @@ class Transcripter extends Component {
                   <textarea value={this.state.fromText} onChange={this.handleChange} className='form-control mb-2' name='fromText'/>
 
 
-                  <h5 className='trans-header text-white'>To:</h5>
-                  <select name='to' value={this.state.to} onChange={this.handleChange} className='trans-header form-control my-1'>
+                  <h5 className='trans-text text-white'>To:</h5>
+                  <select name='to' value={this.state.to} onChange={this.handleChange} className='trans-text form-control my-1'>
                     <option disabled defaultValue>--Select an alphabet--</option>
                     <option>Cyrillic</option>
                     <option>Arabic</option>
