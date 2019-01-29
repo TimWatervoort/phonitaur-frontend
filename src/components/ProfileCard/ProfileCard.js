@@ -14,7 +14,7 @@ class ProfileCard extends Component {
 
             <div className='row'>
               <div className='col-4'>
-                <img className="user-img img-fluid" src={user.img ? user.img : minotaur} alt="User"/>
+                <img className="user-img my-auto img-fluid" src={user.img ? user.img : minotaur} alt="User"/>
               </div>
               <div className='col-8 text-left'>
                 <h3 id='username' className='text-white user-text'>{user.username}</h3>

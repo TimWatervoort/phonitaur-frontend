@@ -9,8 +9,7 @@
 }
 
 .user-img {
-  max-width: 120px;
-  height: auto;
+  max-height: 200px;
 }
 
 .user-text {
