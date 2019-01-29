@@ -29,14 +29,14 @@ class Navbar extends Component {
         {leftSide}
       </div>
       <div className='col-md-4 col-sm-10 text-center'>
-        <Link to='/' className='nav-title nav-but'>phonitaur</Link>
+        <Link to='/' className='nav-title nav-but'>p h o n i t a u r</Link>
       </div>
       <div className='col-md-4 col-sm-1 text-center'>
         <Link to={rightLink} className='btn nav-head nav-but'>{rightButton}</Link>
       </div>
     </div>;
     if (window.innerHeight > window.innerWidth) {
-      respoNav=<div className='container'><div className='col-md-4 col-sm-10 text-center'><Link to='/' className='nav-title nav-but'>phonitaur</Link></div> <div className='col-md-4 col-sm-1 text-center'>{leftSide}</div><div className='col-md-4 col-sm-1 text-center'><Link to={rightLink} className='btn nav-head nav-but'>{rightButton}</Link></div></div>
+      respoNav=<div className='container'><div className='col-md-4 col-sm-10 text-center'><Link to='/' className='nav-title nav-but'>p h o n i t a u r</Link></div> <div className='col-md-4 col-sm-1 text-center'>{leftSide}</div><div className='col-md-4 col-sm-1 text-center'><Link to={rightLink} className='btn nav-head nav-but'>{rightButton}</Link></div></div>
     }
 
     return(

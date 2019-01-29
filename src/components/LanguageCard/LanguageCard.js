@@ -37,7 +37,7 @@ class LanguageCard extends Component {
     if (alphabet.name === 'Dutch') image = holland;
     if (alphabet.name === 'International Phonetic Alphabet') image = ipa;
 
-    let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger lang-text'>Add Course</button>;
+    let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger btn-text'>Add Course</button>;
 
     for (var i = 0; i < user.languages.length; i++) {
       if (user.languages[i].name === alphabet.name) {
