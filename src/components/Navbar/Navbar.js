@@ -21,23 +21,28 @@ class Navbar extends Component {
     if (leftButton === 'Log Out') {
       leftSide = <button onClick={this.sendLogout} className='btn nav-head nav-but'>Log Out</button>;
     } else {
-      leftSide = <Link to={leftLink} className='nav-head nav-but'>{leftButton}</Link>;
+      leftSide = <Link to={leftLink} className='btn nav-head nav-but'>{leftButton}</Link>;
+    }
+
+    let respoNav = <div className='container'>
+      <div className='col-md-4 col-sm-1 text-center'>
+        {leftSide}
+      </div>
+      <div className='col-md-4 col-sm-10 text-center'>
+        <Link to='/' className='nav-title nav-but'>phonitaur</Link>
+      </div>
+      <div className='col-md-4 col-sm-1 text-center'>
+        <Link to={rightLink} className='btn nav-head nav-but'>{rightButton}</Link>
+      </div>
+    </div>;
+    if (window.innerHeight > window.innerWidth) {
+      respoNav=<div className='container'><div className='col-md-4 col-sm-10 text-center'><Link to='/' className='nav-title nav-but'>phonitaur</Link></div> <div className='col-md-4 col-sm-1 text-center'>{leftSide}</div><div className='col-md-4 col-sm-1 text-center'><Link to={rightLink} className='btn nav-head nav-but'>{rightButton}</Link></div></div>
     }
 
     return(
       <div>
         <nav className='navbar my-nav'>
-          <div className='container'>
-            <div className='col-4 text-center'>
-              {leftSide}
-            </div>
-            <div className='col-4 text-center'>
-              <Link to='/' className='nav-title nav-but'>phonitaur</Link>
-            </div>
-            <div className='col-4 text-center'>
-              <Link to={rightLink} className='nav-head nav-but'>{rightButton}</Link>
-            </div>
-          </div>
+          {respoNav}
         </nav>
       </div>
 

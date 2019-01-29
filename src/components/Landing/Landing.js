@@ -6,9 +6,10 @@ import Cookies from 'js-cookie';
 
 class Landing extends Component {
   render() {
+
     return (
       <div className='set-bg'>
-        <div className='container'>
+        <div className='container mt-3'>
         <div className='row mb-5'>
           <div className='col'>
             <h1 className='phon-header text-center'>P h o n i t a u r</h1>

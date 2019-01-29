@@ -23,9 +23,3 @@
 .nav-top{
   font-size: 25px;
 }
-
-@media(orientation: portrait){
-  .nav-head{
-    visibility: hidden;
-  }
-}
