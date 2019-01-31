@@ -17,6 +17,7 @@ class Navbar extends Component {
 
     const { leftButton, rightButton, leftLink, rightLink } = this.props;
 
+    //let the navbar be changed, depending on what page the user is on
     let leftSide;
     if (leftButton === 'Log Out') {
       leftSide = <button onClick={this.sendLogout} className='btn nav-head nav-but'>Log Out</button>;

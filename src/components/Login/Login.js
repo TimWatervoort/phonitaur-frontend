@@ -17,6 +17,7 @@ class Login extends Component {
   }
 
   setValue = e => {
+    //set values in state
     const key = e.target.name;
     const value = e.target.value.replace(/\s/g, '');
     this.setState({
@@ -25,6 +26,7 @@ class Login extends Component {
   }
 
   sendLogin = e => {
+    //send the credentials to the login action creator
     e.preventDefault();
     const { login } = this.props;
     login(this.state);
@@ -38,6 +40,7 @@ class Login extends Component {
 
     const { auth } = this.props;
 
+    //if the state is set to error, let the user know
     const loginError = <div className='mb-2 row bg-danger'><h5 className='pt-2 pb-1 text-white user-text text-center mx-auto'>Error Logging In</h5></div>
 
     return(

@@ -18,6 +18,7 @@ class Question extends Component {
   }
 
   checkAnswer = e => {
+    //if the question's answer value contains the user's answer, set it to correct
     e.preventDefault();
     const { question } = this.props;
     const answers = question.answer.split(',');
@@ -30,15 +31,18 @@ class Question extends Component {
   }
 
   toggleKeys = e => {
+    //change whether the keyboard is visible
     this.setState({ hidden: !this.state.hidden })
   }
 
   addToInput = val => {
+    //add special characters to the input field
     let newVal = `${this.state.value}${val}`;
     this.setState({ value: newVal });
   }
 
   answer(){
+    //let the lesson page know that the question was correctly answered
     this.props.answer(this.props.question.id);
   }
 

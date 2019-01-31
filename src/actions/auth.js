@@ -13,16 +13,19 @@ const apiUrl = 'https://phonitaur-backend.herokuapp.com';
 
 export const login = data => {
   return async dispatch => {
+    //use the provided data to get an auth token
     const response = await fetch(`${apiUrl}/api/token/`, {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     });
+    //if the credentials weren't correct or the server had an error, let the user know
     if (response.status !== 200) {
       dispatch({
         type: LOGIN_FAILURE
       });
     } else {
+      //set a cookie and get the user's data for the components to use
       const json = await response.json();
       Cookies.set('phonitoken', json.access);
       dispatch({
@@ -40,12 +43,14 @@ export const login = data => {
 }
 
 export const signup = data => {
+  //create a user with the given data
   return async dispatch => {
     const response = await fetch(`${apiUrl}/users/`, {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
     });
+    //if the information wasn't correctly formatted or the server had an error, let the user know
     if (response.status !== 201) {
       dispatch({
         type: SIGNUP_FAILURE
@@ -62,6 +67,7 @@ export const signup = data => {
 
 export const logout = () => {
   return dispatch => {
+    //remove the cookie that the login function set
     try {
       Cookies.remove('phonitoken')
       dispatch({

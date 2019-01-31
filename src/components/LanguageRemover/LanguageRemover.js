@@ -17,6 +17,7 @@ class LanguageRemover extends Component {
   }
 
   remove(){
+    //remove the course from the user's roster
     const { alphabet, user, updateCourses } = this.props;
     user.languages = user.languages.filter(x => x.name !== alphabet.name)
     updateCourses(user);
@@ -27,6 +28,7 @@ class LanguageRemover extends Component {
     const { alphabet } = this.props;
 
     let image = null;
+    //set the image for the card
     if (alphabet.name === 'Cyrillic') image = russia;
     if (alphabet.name === 'Arabic') image = arabia;
     if (alphabet.name === 'Dutch') image = holland;

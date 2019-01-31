@@ -23,6 +23,7 @@ class LessonCard extends Component {
 
     const { lesson, alph, user } = this.props
 
+    // if the user has completed the lesson, change the background to green.
     let color = 'lesson-card-body';
     if (user.lessons) {
       let idMaps = user.lessons.map(x => x.id);

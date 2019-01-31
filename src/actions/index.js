@@ -15,6 +15,7 @@ export const GET_LESSON = 'GET_LESSON';
 const apiUrl = 'https://phonitaur-backend.herokuapp.com';
 
 export const getUser = () => {
+  //if the user is logged in, get the user's data using the id in the jwt token
   return async dispatch => {
     if (Cookies.get('phonitoken')) {
       dispatch({type: GETTING_USER});
@@ -30,6 +31,7 @@ export const getUser = () => {
 }
 
 export const getLanguages = () => {
+  //get all alphabets for the language card components to use
   return async dispatch => {
     dispatch({type: GETTING_LANGUAGES});
     const response = await fetch(`${apiUrl}/alphabets`);
@@ -42,6 +44,7 @@ export const getLanguages = () => {
 }
 
 export const getLessons = id => {
+  //get all lessons for an alphabet for the lesson cards to use
   return async dispatch => {
     dispatch({type: GETTING_LESSONS});
     const response = await fetch(`${apiUrl}/lessons/${id}`);
@@ -54,6 +57,7 @@ export const getLessons = id => {
 }
 
 export const getAlphabet = name => {
+  // get one alphabet, mostly for printing the name
   return async dispatch => {
     dispatch({type: GETTING_ALPHABET});
     const response = await fetch(`${apiUrl}/alphabets/${name}`);
@@ -66,6 +70,7 @@ export const getAlphabet = name => {
 }
 
 export const getLesson = id => {
+  //get one lesson with its questions
   return async dispatch => {
     dispatch({type: GETTING_LESSON});
     const response = await fetch(`${apiUrl}/lesson/${id}`);
@@ -78,6 +83,7 @@ export const getLesson = id => {
 }
 
 export const updateCourses = data => {
+  //update a user's information, generally used for adding courses and lessons
   return async dispatch => {
     const response = await fetch(`${apiUrl}/users/${data.id}/`,{
       method: 'PATCH',
@@ -85,7 +91,6 @@ export const updateCourses = data => {
       body: JSON.stringify(data)
     })
     const json = await response.json();
-    console.log('response', response);
     dispatch({
       type: GET_USER,
       payload: json

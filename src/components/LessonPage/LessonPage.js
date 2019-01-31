@@ -21,6 +21,7 @@ class LessonPage extends Component {
   }
 
   updateUser(){
+    //add the lesson to the user, indicating that the user has completed it
     const { lesson, user, updateCourses } = this.props;
     user.lessons = [...user.lessons, lesson];
     console.log(user);
@@ -28,10 +29,12 @@ class LessonPage extends Component {
   }
 
   questionAnswered = item => {
+    //add the item to the list of questions correctly answered in state
     this.setState({correct: [...this.state.correct, item]});
   }
 
   lessonUp(len) {
+    //go to the next instruction card or to the first one if on the last card
     let curLes = this.state.inst;
     if (curLes+1 === len) {
       curLes = 0;
@@ -42,6 +45,7 @@ class LessonPage extends Component {
   }
 
   lessonDown(len) {
+    //go to the previous instruction card or to the last one if on the first card
     let curLes = this.state.inst;
     if (curLes === 0) {
       curLes = len-1;
@@ -58,6 +62,7 @@ class LessonPage extends Component {
     let instructions = null, instLen = 0;
     let chars = null;
 
+    //split up the lesson text into instruction cards and a new character card
     if (lesson.lesson_text) {
       let textArr = lesson.lesson_text.split(';');
       if (textArr[textArr.length-1].startsWith('New')){
@@ -71,6 +76,7 @@ class LessonPage extends Component {
 
     let nextLesson = null;
 
+    //If all questions are correctly answered, add the course to the user if it doesn't have it, then show a button to go back to the lessons.
     if (lesson.questions && this.state.correct.length === lesson.questions.length) {
 
       let uMap = user.lessons.map(x => x.id);

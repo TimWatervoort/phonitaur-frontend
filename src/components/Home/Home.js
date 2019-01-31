@@ -26,6 +26,7 @@ class Home extends Component {
   }
 
   toggleRemoval = e => {
+    //change the cards from language cards to remover cards
     e.preventDefault();
     this.setState({
       removalOn: !this.state.removalOn
@@ -33,6 +34,7 @@ class Home extends Component {
   }
 
   toggleEdit = e => {
+    //toggle the profile card and the editable card
     e.preventDefault();
     const { user } = this.props
     this.setState({
@@ -45,6 +47,7 @@ class Home extends Component {
   }
 
   handleChange = e => {
+    //set the values in state
     const key = e.target.name;
     const value = e.target.value.replace(/\s/g, '');
     this.setState({
@@ -53,6 +56,7 @@ class Home extends Component {
   }
 
   onSubmit = e => {
+    //send edits to the backend
     e.preventDefault();
     const { user, updateCourses } = this.props
     const data = {

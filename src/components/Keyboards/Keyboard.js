@@ -10,6 +10,7 @@ class CyrillicKeyboard extends Component {
   }
 
   handleClick = e => {
+    //add the symbol to the text field
     this.props.fkb(e.target.innerText);
   }
 

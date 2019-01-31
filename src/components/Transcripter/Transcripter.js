@@ -20,11 +20,15 @@ class Transcripter extends Component {
 
 
   handleChange = e => {
+    //set data in state
     const key = e.target.name;
     this.setState({ [key]: e.target.value });
   }
 
   handleSubmit = e => {
+    //check what the from and to alphabets are
+    //send the 'from' text through the selected transcripter file, and display the result in the 'to' text box
+    //if the provided direction is not available yet, let the user know in the 'to' text box
     e.preventDefault();
     console.log(this.state);
     let data;

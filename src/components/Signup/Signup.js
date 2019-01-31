@@ -21,6 +21,7 @@ class Signup extends Component {
   }
 
   setValue = e => {
+    //set values in state
     const key = e.target.name;
     const value = e.target.value.replace(/\s/g, '');
     this.setState({
@@ -29,6 +30,7 @@ class Signup extends Component {
   }
 
   sendSignup = e => {
+    //make sure the values are correctly formatted and send the information to the signup action creator
     e.preventDefault();
     const { signup } = this.props;
     if (this.state.password !== this.state.confPassword) { //make sure passwords match
