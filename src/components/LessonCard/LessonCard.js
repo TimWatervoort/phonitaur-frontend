@@ -21,13 +21,19 @@ class LessonCard extends Component {
 
   render(){
 
-    const { lesson, alph } = this.props
+    const { lesson, alph, user } = this.props
+
+    let color = 'lesson-card-body';
+    if (user.lessons) {
+      let idMaps = user.lessons.map(x => x.id);
+      if (idMaps.includes(lesson.id)) color = 'lesson-complete';
+    }
 
     return(
       <div className='col-lg-4 col-md-12'>
         {this.state.clicked ? <Redirect to={`/lesson/${lesson.id}`}/> : null}
         <div onClick={this.redirectToLesson} className='card my-2' id='lesson-card'>
-          <div className='card-body lesson-card-body'>
+          <div className={`card-body ${color}`}>
             <h4 className='card-title text-white user-text'>{lesson.name}</h4>
             <h5 className='card-subtitle text-grey user-text'>{alph} Lesson {lesson.level}</h5>
           </div>

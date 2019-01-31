@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './LessonPage.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getLesson } from '../../actions/index';
+import { getLesson, updateCourses } from '../../actions/index';
 import Navbar from '../Navbar/Navbar';
 import InstructionCard from '../InstructionCard/InstructionCard';
 import Question from '../Question/Question';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class LessonPage extends Component {
 
@@ -17,6 +17,14 @@ class LessonPage extends Component {
     this.state = {correct: [], inst: 0, instLen: 0}
     this.lessonUp = this.lessonUp.bind(this);
     this.lessonDown = this.lessonDown.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+  }
+
+  updateUser(){
+    const { lesson, user, updateCourses } = this.props;
+    user.lessons = [...user.lessons, lesson];
+    console.log(user);
+    updateCourses(user);
   }
 
   questionAnswered = item => {
@@ -62,8 +70,12 @@ class LessonPage extends Component {
     }
 
     let nextLesson = null;
+
     if (lesson.questions && this.state.correct.length === lesson.questions.length) {
-      nextLesson = <Link to={`/learn/${lesson.language}`} className='instro-btn btn btn-danger'>Back to Lessons</Link>;
+
+      this.updateUser();
+      nextLesson = <Redirect to={`/learn/${lesson.language}`}/>;
+
     }
 
     return(
@@ -140,7 +152,8 @@ class LessonPage extends Component {
   });
 
   const mapDispatchToProps = dispatch => bindActionCreators({
-    getLesson
+    getLesson,
+    updateCourses
   }, dispatch);
 
   export default connect(mapStateToProps, mapDispatchToProps)(LessonPage);
