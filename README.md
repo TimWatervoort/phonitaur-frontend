@@ -30,3 +30,7 @@ Each lesson has multiple info-cards, with you can cycle through with the 'previo
 
 #### Knowledge Check
 If you are learning a foreign alphabet, you can use the keyboard button to add non-English characters. Submit your answers with the 'submit' button. If you were correct, the box will turn green with the text 'correct', otherwise it will turn red with the text 'try again'. Once you have correctly answered each question, a button to go back to the lesson listing will appear, and you will have completed the lesson.
+
+### Transcripter
+
+The transcripter is a basic alphabet-to-alphabet app. It will convert between English and Cyrillic, International Phonetic Alphabet, and Arabic. Please note that it is not perfect, it is just meant to be helpful in determining the pronunciation of something.

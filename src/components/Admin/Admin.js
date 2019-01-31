@@ -55,7 +55,7 @@ class Admin extends Component {
       level: this.state.lessonLevel
     }
     if (this.state.lessonIcon !== '') data.icon = this.state.lessonIcon;
-    const response = await fetch(`https://phonitaur-backend.herokuapp.com/alllessons/`, {
+    const response = await fetch(`https://phonitaur-backend.herokuapp.com/lessons/`, {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
