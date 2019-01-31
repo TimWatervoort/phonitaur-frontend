@@ -66,7 +66,7 @@ class Login extends Component {
                         <h5 className='text-white user-text'>Username:</h5>
                       </div>
                       <div className='col-lg-10 col-md-12'>
-                        <input className='form-control' value={this.state.username} onChange={this.setValue} name='username' autoComplete='off' type='text' placeholder='username'/>
+                        <input className='form-control user-text' value={this.state.username} onChange={this.setValue} name='username' autoComplete='off' type='text' placeholder='username'/>
                       </div>
                     </div>
 
@@ -75,7 +75,7 @@ class Login extends Component {
                         <h5 className='text-white user-text'>Password:</h5>
                       </div>
                       <div className='col-lg-10 col-md-12'>
-                        <input className='form-control' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='password' placeholder='password'/>
+                        <input className='form-control user-text' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='password' placeholder='password'/>
                       </div>
                     </div>
 

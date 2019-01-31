@@ -91,7 +91,7 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Username:</h5>
                       </div>
                       <div className='col-8'>
-                        <input className='sign-form form-control' value={this.state.username} onChange={this.setValue} name='username' autoComplete='off' type='text' placeholder='username' required/>
+                        <input className='sign-form user-text form-control' value={this.state.username} onChange={this.setValue} name='username' autoComplete='off' type='text' placeholder='username' required/>
                       </div>
                     </div>
 
@@ -100,7 +100,7 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Email:</h5>
                       </div>
                       <div className='col-8'>
-                        <input className='sign-form form-control' value={this.state.email} onChange={this.setValue} name='email' autoComplete='off' type='email' placeholder='email' required/>
+                        <input className='sign-form user-text form-control' value={this.state.email} onChange={this.setValue} name='email' autoComplete='off' type='email' placeholder='email' required/>
                       </div>
                     </div>
 
@@ -109,7 +109,7 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Password:</h5>
                       </div>
                       <div className='col-8'>
-                        <input className='sign-form form-control' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='password' placeholder='password' required/>
+                        <input className='sign-form user-text form-control' value={this.state.password} onChange={this.setValue} name='password' autoComplete='off' type='password' placeholder='password' required/>
                       </div>
                     </div>
 
@@ -118,7 +118,7 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Confirm Password:</h5>
                       </div>
                       <div className='col-8'>
-                        <input className='sign-form form-control' value={this.state.confPassword} onChange={this.setValue} name='confPassword' autoComplete='off' type='password' placeholder='confirm password' required/>
+                        <input className='sign-form user-text form-control' value={this.state.confPassword} onChange={this.setValue} name='confPassword' autoComplete='off' type='password' placeholder='confirm password' required/>
                       </div>
                     </div>
 
@@ -127,7 +127,7 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Your Mother Alphabet:</h5>
                       </div>
                       <div className='col-8'>
-                        <select className='drop-form form-control' value={this.state.mother_alphabet} onChange={this.setValue} name='mother_alphabet' autoComplete='off' type='text' required>
+                        <select className='drop-form user-text form-control' value={this.state.mother_alphabet} onChange={this.setValue} name='mother_alphabet' autoComplete='off' type='text' required>
                           <option disabled> --Select an alphabet--</option>
                           <option className='sel-text'>Latin</option>
                           <option className='sel-text'>Cyrillic</option>
@@ -149,7 +149,7 @@ class Signup extends Component {
                         <h5 className='text-white user-text'>Image URL:</h5>
                       </div>
                       <div className='col-8'>
-                        <input className='sign-form form-control' value={this.state.img} onChange={this.setValue} name='img' autoComplete='off' type='url' placeholder='image url'/>
+                        <input className='sign-form user-text form-control' value={this.state.img} onChange={this.setValue} name='img' autoComplete='off' type='url' placeholder='image url'/>
                       </div>
                     </div>
 
