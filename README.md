@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Phonitaur: An alphabet-learning app
 
-## Available Scripts
+#### One of the most daunting things about learning a new language is learning how to pronounce it, or in some cases, learning a new alphabet!
 
-In the project directory, you can run:
+#### Phonitaur attempts to assist with that by teaching the alphabet and pronunciation separate from the language.
 
-### `npm start`
+#### Login/Signup
+To use the site, you will need to create a free account. To sign up, you will need a unique username and email, along with a password and your mother alphabet. You can also optionally provide an image for your profile picture.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Once you have signed up, you will be redirected to login.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Editing your User
 
-### `npm test`
+#### Adding a Course
+To add a course, navigate to the /catalog page, which is also accessible by a button on the profile page. Simply click the 'add course' button on the alphabet card, and it will be added to your roster.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Removing a Course
+To remove a course, click the 'remove a course' button on the profile page. The 'continue' text on the alphabet cards will be replaced with 'remove course', which you can click to remove the course.
 
-### `npm run build`
+#### Editing Your Profile
+To edit your profile, simply click the 'edit profile' button on the profile page, make your edits, and click 'submit'. If you wish to forgo editing, simply click the 'done editing' button which the 'edit profile' button became when you clicked it.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Learning
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### Structure
+By clicking the 'continue' button on the alphabet card, you will be brought to the lesson listing for the alphabet. Click any of the lesson cards, and you will be brought to the lesson page. If the lesson card has a green background, you have completed the knowledge check for that lesson.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Going Through a Lesson
+Each lesson has multiple info-cards, with you can cycle through with the 'previous' and 'next' buttons above the knowledge check. Once you have gone through them all, proceed to the knowledge check.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Knowledge Check
+If you are learning a foreign alphabet, you can use the keyboard button to add non-English characters. Submit your answers with the 'submit' button. If you were correct, the box will turn green with the text 'correct', otherwise it will turn red with the text 'try again'. Once you have correctly answered each question, a button to go back to the lesson listing will appear, and you will have completed the lesson.
