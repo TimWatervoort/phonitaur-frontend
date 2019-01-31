@@ -6,7 +6,7 @@ import { getLesson, updateCourses } from '../../actions/index';
 import Navbar from '../Navbar/Navbar';
 import InstructionCard from '../InstructionCard/InstructionCard';
 import Question from '../Question/Question';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 class LessonPage extends Component {
 
@@ -53,7 +53,7 @@ class LessonPage extends Component {
 
   render() {
 
-    const { lesson } = this.props;
+    const { lesson, user } = this.props;
 
     let instructions = null, instLen = 0;
     let chars = null;
@@ -73,8 +73,9 @@ class LessonPage extends Component {
 
     if (lesson.questions && this.state.correct.length === lesson.questions.length) {
 
-      this.updateUser();
-      nextLesson = <Redirect to={`/learn/${lesson.language}`}/>;
+      let uMap = user.lessons.map(x => x.id);
+      if (!uMap.includes(lesson.id)) this.updateUser();
+      nextLesson = <Link to={`/learn/${lesson.language}`} className='btn btn-danger mx-auto text-center instro-btn'>Back to Lessons</Link>;
 
     }
 

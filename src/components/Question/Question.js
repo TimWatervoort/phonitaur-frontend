@@ -56,7 +56,7 @@ class Question extends Component {
     <div>
       <form onSubmit={this.checkAnswer} className='mt-2'>
         <p className='ml-1 user-text text-white'>{question.question_text}</p>
-        <input value={this.state.value} onChange={this.handleChange} className={`form-control ${this.state.answer}`} placeholder='type your answer' autoComplete='off'/>
+        <input value={this.state.value} onChange={this.handleChange} className={`user-text form-control ${this.state.answer}`} placeholder='type your answer' autoComplete='off'/>
       </form>
 
       {keyboardButton}
