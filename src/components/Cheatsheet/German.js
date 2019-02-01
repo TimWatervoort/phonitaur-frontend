@@ -1,0 +1,25 @@
+const german = [{char: 'ä', english: 'e in set', ipa: null},
+{char: 'ö', english: 'rounded e in set', ipa: null},
+{char: 'ü', english: 'rounded ee', ipa: 'y'},
+{char: 'a', english: 'a sound in thigh', ipa: 'a'},
+{char: 'i', english: 'i in sit', ipa: 'ɪ'},
+{char: 'ih', english: 'ee', ipa: 'i'},
+{char: 'e', english: 'e sound in play', ipa: 'e'},
+{char: 'o', english: 'o sound in oi', ipa: 'o'},
+{char: 'u', english: 'oo', ipa: 'u'},
+{char: 'y', english: 'short ü', ipa: null},
+{char: 'ei', english: 'y in sky', ipa: null},
+{char: 'eu', english: 'oi', ipa: null},
+{char: 's', english: 'z', ipa: 'z'},
+{char: 'z', english: 'ts', ipa: 'ts'},
+{char: 'sch', english: 'sh in sheep', ipa: 'ʃ'},
+{char: 's before p/t', english: 'sh in sheep', ipa: 'ʃ'},
+{char: 'ß', english: 's', ipa: 's'},
+{char: 'r before vowels', english: 'uvular R', ipa: 'ʁ'},
+{char: 'r elsewhere', english: 'neutral a', ipa: null},
+{char: 'j', english: 'y in yes', ipa: 'j'},
+{char: 'ch', english: 'ch in loch', ipa: 'x'},
+{char: 'w', english: 'v', ipa: 'v'}
+];
+
+export default german;

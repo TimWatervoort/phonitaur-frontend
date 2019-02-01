@@ -7,6 +7,7 @@ import ipa from './IPA';
 import arabic from './Arabic';
 import cyrillic from './Cyrillic.js';
 import dutch from './Dutch';
+import german from './German';
 
 class Cheatsheet extends Component {
   render() {
@@ -26,6 +27,9 @@ class Cheatsheet extends Component {
         break;
       case 'International Phonetic Alphabet':
         items = ipa;
+        break;
+      case 'German':
+        items = german;
         break;
       default:
         items = null;
