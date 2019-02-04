@@ -66,6 +66,7 @@ class Home extends Component {
       mother_alphabet: this.state.mother_alphabet,
       password: user.password,
       languages: user.languages,
+      lessons: user.lessons,
       email: user.email
     }
     updateCourses(data);
