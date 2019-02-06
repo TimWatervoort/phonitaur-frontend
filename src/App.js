@@ -11,6 +11,7 @@ import Signup from './components/Signup/Signup';
 import AuthHome from './components/AuthHome/AuthHome';
 import Cheatsheet from './components/Cheatsheet/Cheatsheet';
 import Admin from './components/Admin/Admin';
+import About from './components/About/About';
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
         <Route path='/auth' component={AuthHome}/>
         <Route path='/sheet/:name' component={Cheatsheet}/>
         <Route path='/adminoclock' component={Admin}/>
+        <Route path='/about' component={About}/>
       </div>
     );
   }

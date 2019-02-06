@@ -1,0 +1,21 @@
+.tech-txt{
+  font-family: 'Staatliches', cursive;
+  color: white;
+  font-size: 40px;
+}
+
+.main-tech{
+  font-size: 60px;
+}
+
+.tim-link {
+  color: white;
+}
+
+.tim-link:hover {
+  text-decoration: none;
+}
+
+.tim-link:visited{
+  text-decoration: none;
+}
