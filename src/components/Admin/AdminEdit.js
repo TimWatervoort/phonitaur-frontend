@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../Navbar/Navbar';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getLanguages } from '../../actions/index';
+import { getLanguages, getLessons } from '../../actions/index';
 
 class AdminEdit extends Component {
 
@@ -35,6 +35,21 @@ class AdminEdit extends Component {
       languageImg: json.img,
       languageColor: json.text_color
     });
+    this.props.getLessons(this.state.languageName);
+  }
+
+  lessEditInit = async e => {
+    const response = await fetch(`https://phonitaur-backend.herokuapp.com/lesson/${e.target.id}`);
+    const json = await response.json();
+    if (json.icon === null) json.icon = '';
+    this.setState({
+      lessonId: json.id,
+      lessonName: json.name,
+      lessonIcon: json.icon,
+      lessonText: json.lesson_text,
+      lessonLevel: json.level,
+      lessonLanguage: json.language
+    });
   }
 
   langEditSubmit = async e => {
@@ -53,14 +68,37 @@ class AdminEdit extends Component {
     console.log(json);
   }
 
+  lessEditSubmit = async e => {
+    e.preventDefault();
+    const data = {
+      name: this.state.lessonName,
+      icon: this.state.lessonIcon,
+      level: this.state.lessonLevel,
+      language: this.state.lessonLanguage,
+      lesson_text: this.state.lessonText
+    }
+    const response = await fetch(`https://phonitaur-backend.herokuapp.com/lesson/${this.state.lessonId}`, {
+      method: 'PATCH',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    const json = await response.json();
+    console.log(json);
+  }
+
   handleLanguage = e => {
     const key = `language${e.target.name}`;
     this.setState({ [key]: e.target.value });
   }
 
+  handleLesson = e => {
+    const key = `lesson${e.target.name}`;
+    this.setState({ [key]: e.target.value });
+  }
+
   render() {
 
-    const { languages } = this.props;
+    const { languages, lessons } = this.props;
 
     // const theBois = [{name: 'Gerald'},{name: 'Egbert'},{name:'Azvyrakhys'}];
 
@@ -85,12 +123,18 @@ class AdminEdit extends Component {
               <button className='btn btn-danger mx-auto text-center' type='submit'>Submit Language</button>
             </form>
 
-            <form onSubmit={this.addLesson} className='mb-4'>
-              <input type='text' name='Name' onChange={this.handleLesson} value={this.lessonName} placeholder='Lesson name' autoComplete='off' className='my-2 form-control'/>
-              <input type='text' name='Language' onChange={this.handleLesson} value={this.lessonLanguage} placeholder='Lesson language' autoComplete='off' className='my-2 form-control'/>
-              <textarea type='text' name='Text' onChange={this.handleLesson} value={this.lessonText} placeholder='Lesson text' autoComplete='off' className='my-2 form-control'/>
-              <input type='text' name='Level' onChange={this.handleLesson} value={this.lessonLevel} placeholder='Lesson level' autoComplete='off' className='my-2 form-control'/>
-              <input type='text' name='Icon' onChange={this.handleLesson} value={this.lessonIcon} placeholder='Lesson icon' autoComplete='off' className='my-2 form-control'/>
+            <div className='row'>
+              <div className='col'>
+                {Array.isArray(lessons) ? lessons.map((x,i) => <span key={i} id={x.id} onClick={this.lessEditInit} className='mx-1 badge badge-dark'>{x.name}</span>) : null}
+              </div>
+            </div>
+
+            <form onSubmit={this.LessEditSubmit} className='mb-4'>
+              <input type='text' name='Name' onChange={this.handleLesson} value={this.state.lessonName} placeholder='Lesson name' autoComplete='off' className='my-2 form-control'/>
+              <input type='text' name='Language' onChange={this.handleLesson} value={this.state.lessonLanguage} placeholder='Lesson language' autoComplete='off' className='my-2 form-control'/>
+              <textarea type='text' name='Text' onChange={this.handleLesson} value={this.state.lessonText} placeholder='Lesson text' autoComplete='off' className='my-2 form-control'/>
+              <input type='text' name='Level' onChange={this.handleLesson} value={this.state.lessonLevel} placeholder='Lesson level' autoComplete='off' className='my-2 form-control'/>
+              <input type='text' name='Icon' onChange={this.handleLesson} value={this.state.lessonIcon} placeholder='Lesson icon' autoComplete='off' className='my-2 form-control'/>
               <button className='btn btn-danger mx-auto text-center' type='submit'>Submit Lesson</button>
             </form>
 
@@ -111,11 +155,13 @@ class AdminEdit extends Component {
 }
 
 const mapStateToProps = state => ({
-  languages: state.languages
+  languages: state.languages,
+  lessons: state.lessons
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getLanguages
+  getLanguages,
+  getLessons
 }, dispatch);
 
 export default connect(mapStateToProps,mapDispatchToProps)(AdminEdit);
