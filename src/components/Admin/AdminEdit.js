@@ -18,6 +18,7 @@ class AdminEdit extends Component {
       lessonText: '',
       lessonLevel: '',
       lessonIcon: '',
+      questions: '',
       questionText: '',
       questionAnswer: '',
       questionName: '',
@@ -48,7 +49,19 @@ class AdminEdit extends Component {
       lessonIcon: json.icon,
       lessonText: json.lesson_text,
       lessonLevel: json.level,
-      lessonLanguage: json.language
+      lessonLanguage: json.language,
+      questions: json.questions
+    });
+  }
+
+  quesEditInit = async e => {
+    const response = await fetch(`https://phonitaur-backend.herokuapp.com/questions/${e.target.id}`);
+    const json = await response.json();
+    this.setState({
+      questionId: json.id,
+      questionName: json.name,
+      questionText: json.question_text,
+      questionAnswer: json.answer
     });
   }
 
@@ -86,6 +99,22 @@ class AdminEdit extends Component {
     console.log(json);
   }
 
+  quesEditSubmit = async e => {
+    e.preventDefault();
+    const data = {
+      name: this.state.questionName,
+      answer: this.state.questionAnswer,
+      question_text: this.state.questionText
+    }
+    const response = await fetch(`https://phonitaur-backend.herokuapp.com/lesson/${this.state.lessonId}`, {
+      method: 'PATCH',
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    });
+    const json = await response.json();
+    console.log(json);
+  }
+
   handleLanguage = e => {
     const key = `language${e.target.name}`;
     this.setState({ [key]: e.target.value });
@@ -93,6 +122,11 @@ class AdminEdit extends Component {
 
   handleLesson = e => {
     const key = `lesson${e.target.name}`;
+    this.setState({ [key]: e.target.value });
+  }
+
+  handleQuestion = e => {
+    const key = `question${e.target.name}`;
     this.setState({ [key]: e.target.value });
   }
 
@@ -138,11 +172,16 @@ class AdminEdit extends Component {
               <button className='btn btn-danger mx-auto text-center' type='submit'>Submit Lesson</button>
             </form>
 
-            <form onSubmit={this.addQuestion} className='mb-4'>
-              <input type='text' name='Name' onChange={this.handleQuestion} value={this.questionName} placeholder='Question name' autoComplete='off' className='my-2 form-control'/>
-              <input type='number' name='Lesson' onChange={this.handleQuestion} value={this.questionLesson} placeholder='Question lesson' autoComplete='off' className='my-2 form-control'/>
-              <textarea type='text' name='Text' onChange={this.handleQuestion} value={this.questionText} placeholder='Question text' autoComplete='off' className='my-2 form-control'/>
-              <input type='text' name='Answer' onChange={this.handleQuestion} value={this.questionAnswer} placeholder='Question answer' autoComplete='off' className='my-2 form-control'/>
+            <div className='row'>
+              <div className='col'>
+                {Array.isArray(this.state.questions) ? this.state.questions.map((x,i) => <span key={i} id={x.id} onClick={this.quesEditInit} className='mx-1 badge badge-dark'>{x.name}</span>) : null}
+              </div>
+            </div>
+
+            <form onSubmit={this.quesEditSubmit} className='mb-4'>
+              <input type='text' name='Name' onChange={this.handleQuestion} value={this.state.questionName} placeholder='Question name' autoComplete='off' className='my-2 form-control'/>
+              <textarea type='text' name='Text' onChange={this.handleQuestion} value={this.state.questionText} placeholder='Question text' autoComplete='off' className='my-2 form-control'/>
+              <input type='text' name='Answer' onChange={this.handleQuestion} value={this.state.questionAnswer} placeholder='Question answer' autoComplete='off' className='my-2 form-control'/>
               <button className='btn btn-danger mx-auto text-center' type='submit'>Submit Question</button>
             </form>
 
