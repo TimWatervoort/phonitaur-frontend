@@ -7,6 +7,7 @@ import Navbar from '../Navbar/Navbar';
 import InstructionCard from '../InstructionCard/InstructionCard';
 import Question from '../Question/Question';
 import { Redirect, Link } from 'react-router-dom';
+import Progress from './Progress';
 
 class LessonPage extends Component {
 
@@ -14,7 +15,7 @@ class LessonPage extends Component {
     super(props);
     const { match, getLesson } = this.props
     getLesson(match.params.id)
-    this.state = {correct: [], inst: 0, instLen: 0}
+    this.state = {correct: [], inst: 0, instLen: 0, done: 0}
     this.lessonUp = this.lessonUp.bind(this);
     this.lessonDown = this.lessonDown.bind(this);
     this.updateUser = this.updateUser.bind(this);
@@ -35,13 +36,33 @@ class LessonPage extends Component {
 
   lessonUp(len) {
     //go to the next instruction card or to the first one if on the last card
+    const { lesson } = this.props;
     let curLes = this.state.inst;
     if (curLes+1 === len) {
       curLes = 0;
     } else {
       curLes++;
     }
-    this.setState({inst: curLes});
+
+    let new_undone;
+    let instLen = lesson.lesson_text.split(';');
+    if (typeof this.state.undone !== 'number'){
+      new_undone = instLen.length - 2;
+    } else if (this.state.undone > 0) {
+      new_undone = this.state.undone - 1;
+    } else {
+      new_undone = this.state.undone;
+    }
+
+    let new_done;
+    if (this.state.done !== instLen.length - 1){
+      new_done = this.state.done + 1;
+    } else {
+      new_done = this.state.done;
+    }
+
+    this.setState({inst: curLes, undone: new_undone, done: new_done});
+    console.log(this.state);
   }
 
   lessonDown(len) {
@@ -85,6 +106,21 @@ class LessonPage extends Component {
 
     }
 
+    let doneArray = [];
+    for (var i = 0; i < this.state.done; i++) {
+      doneArray.push('done');
+    }
+    for (var i = 0; i < this.state.undone; i++) {
+      doneArray.push('undone')
+    }
+
+    let progressBar;
+    if (typeof this.state.undone !== 'number' && instructions) {
+      progressBar = instructions.map((x,i) => <Progress key={i} color={'undone'}/>);
+    } else {
+      progressBar = doneArray.map((x,i) => <Progress key={i} color={x} />)
+    }
+
     return(
       <div>
         <Navbar leftButton={'All Lessons'} leftLink={`/learn/${lesson.language}`} rightButton={'Cheat Sheet'} rightLink={`/sheet/${lesson.language}`} />
@@ -113,6 +149,10 @@ class LessonPage extends Component {
                 {chars ? chars.map((x,i) => <span key={i} className='mx-auto user-text text-white'> {x} </span>) : <span className='text-center user-text text-white'>{'None'}</span>}
               </div>
             </div>
+          </div>
+
+          <div className='row my-1'>
+            {progressBar}
           </div>
 
           <div className='row'>

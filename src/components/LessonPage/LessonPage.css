@@ -3,6 +3,10 @@
   border: none;
 }
 
+.done-card-body {
+  background-color: rgb(6, 109, 1);
+}
+
 #lesson-card{
   background-color: rgba(0,0,0,0);
 }
@@ -19,4 +23,8 @@
 
 .symbol-text{
   font-family: 'Palatino Linotype', serif;
+}
+
+.prog-sect {
+  width: 100%;
 }
