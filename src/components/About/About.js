@@ -35,7 +35,7 @@ class About extends Component {
             </div>
 
             <div className='col-4'>
-              <img className='img-fluid' src={phonitaur_img}/>
+              <img alt='Phonitaur' className='img-fluid' src={phonitaur_img}/>
             </div>
 
             <div className='col-4 text-center'>

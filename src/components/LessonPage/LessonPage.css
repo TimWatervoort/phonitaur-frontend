@@ -28,3 +28,7 @@
 .prog-sect {
   width: 100%;
 }
+
+.prog-text {
+  font-family: 'Staatliches', cursive;
+}

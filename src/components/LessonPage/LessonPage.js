@@ -106,19 +106,21 @@ class LessonPage extends Component {
 
     }
 
+    // create an array that will be the values pushed to the 'Progress' component. That way, it can be mapped directly.
     let doneArray = [];
     for (var i = 0; i < this.state.done; i++) {
       doneArray.push('done');
     }
-    for (var i = 0; i < this.state.undone; i++) {
+    for (var x = 0; x < this.state.undone; x++) {
       doneArray.push('undone')
     }
 
+    // If the user hasn't progressed at all, make all the bars red, otherwise, go to the doneArray.
     let progressBar;
     if (typeof this.state.undone !== 'number' && instructions) {
-      progressBar = instructions.map((x,i) => <Progress key={i} color={'undone'}/>);
+      progressBar = instructions.map((x,i) => <Progress key={i} color={'undone'} number={i+1}/>);
     } else {
-      progressBar = doneArray.map((x,i) => <Progress key={i} color={x} />)
+      progressBar = doneArray.map((x,i) => <Progress key={i} color={x} number={i+1}/>)
     }
 
     return(
@@ -148,6 +150,14 @@ class LessonPage extends Component {
                 <h4 className='card-title mx-auto text-center text-white user-text'>New Characters</h4>
                 {chars ? chars.map((x,i) => <span key={i} className='mx-auto user-text text-white'> {x} </span>) : <span className='text-center user-text text-white'>{'None'}</span>}
               </div>
+            </div>
+          </div>
+
+          <div className='row'>
+            <div className='col'>
+              <p className='text-center mx-auto text-white user-text'>
+                Head over to the Cheat Sheet to hear audio!
+                </p>
             </div>
           </div>
 
