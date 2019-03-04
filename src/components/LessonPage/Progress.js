@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Progress extends Component {
   render(){
 
-    const { color, number } = this.props;
+    const { color } = this.props;
 
     return(
       <div className='col p-0 prog-sect'>

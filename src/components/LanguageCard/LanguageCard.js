@@ -9,6 +9,7 @@ import holland from '../../images/holland.jpg';
 import russia from '../../images/russia.jpg';
 import ipa from '../../images/ipa.jpg';
 import germany from '../../images/germany.jpg';
+import iran from '../../images/iran.jpg';
 
 class LanguageCard extends Component {
 
@@ -34,6 +35,7 @@ class LanguageCard extends Component {
     if (alphabet.name === 'Dutch') image = holland;
     if (alphabet.name === 'International Phonetic Alphabet') image = ipa;
     if (alphabet.name === 'German') image = germany;
+    if (alphabet.name === 'Persian') image = iran;
 
     let button = <button onClick={this.add} className='mt-auto mx-auto cont-button btn btn-danger btn-text'>Add Course</button>;
 

@@ -88,7 +88,8 @@ class AdminEdit extends Component {
       icon: this.state.lessonIcon,
       level: this.state.lessonLevel,
       language: this.state.lessonLanguage,
-      lesson_text: this.state.lessonText
+      lesson_text: this.state.lessonText,
+      questions: this.state.questions
     }
     const response = await fetch(`https://phonitaur-backend.herokuapp.com/lesson/${this.state.lessonId}`, {
       method: 'PATCH',
@@ -106,7 +107,7 @@ class AdminEdit extends Component {
       answer: this.state.questionAnswer,
       question_text: this.state.questionText
     }
-    const response = await fetch(`https://phonitaur-backend.herokuapp.com/lesson/${this.state.lessonId}`, {
+    const response = await fetch(`https://phonitaur-backend.herokuapp.com/questions/${this.state.questionId}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(data)
@@ -163,7 +164,7 @@ class AdminEdit extends Component {
               </div>
             </div>
 
-            <form onSubmit={this.LessEditSubmit} className='mb-4'>
+            <form onSubmit={this.lessEditSubmit} className='mb-4'>
               <input type='text' name='Name' onChange={this.handleLesson} value={this.state.lessonName} placeholder='Lesson name' autoComplete='off' className='my-2 form-control'/>
               <input type='text' name='Language' onChange={this.handleLesson} value={this.state.lessonLanguage} placeholder='Lesson language' autoComplete='off' className='my-2 form-control'/>
               <textarea type='text' name='Text' onChange={this.handleLesson} value={this.state.lessonText} placeholder='Lesson text' autoComplete='off' className='my-2 form-control'/>
