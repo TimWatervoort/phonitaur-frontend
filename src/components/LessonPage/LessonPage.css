@@ -1,10 +1,16 @@
 .lesson-card-body {
   background-color: rgba(173, 15, 36, 0.5);
   border: none;
+  width: 100% !important;
 }
 
 .done-card-body {
   background-color: rgb(6, 109, 1);
+}
+
+#prog-card{
+  background-color: rgba(0,0,0,0);
+  width: 100% !important;
 }
 
 #lesson-card{
