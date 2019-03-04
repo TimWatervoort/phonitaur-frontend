@@ -10,10 +10,13 @@ class SheetChart extends Component {
 
   render() {
 
-    const { item } = this.props;
+    const { item, index } = this.props;
+
+    let bgColor = 'odd-row';
+    if (index % 2 === 0) bgColor = 'even-row';
 
     return(
-      <div className='row'>
+      <div className={`row pt-2 ${bgColor}`}>
         <div className='col-4'>
           <h4 className='user-text text-white'>{item.char}</h4>
         </div>

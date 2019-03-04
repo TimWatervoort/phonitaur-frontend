@@ -10,3 +10,11 @@
 .user-text {
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
+
+.odd-row {
+  background-color: rgba(173, 15, 36, 0.5);
+}
+
+.even-row {
+  background-color: none;
+}

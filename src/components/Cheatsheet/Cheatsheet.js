@@ -55,7 +55,7 @@ class Cheatsheet extends Component {
               <h4 className='user-text text-white'>English Transcription</h4>
             </div>
           </div>
-          {items ? items.map((x,i) => <SheetChart key={i} item={x}/>) : null}
+          {items ? items.map((x,i) => <SheetChart key={i} item={x} index={i}/>) : null}
         </div>
       </div>
     )

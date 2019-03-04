@@ -162,9 +162,9 @@ class LessonPage extends Component {
           </div>
 
           <div className='container'>
-          <div className='row my-1'>
-            {progressBar}
-          </div>
+            <div className='row my-1'>
+              {progressBar}
+            </div>
           </div>
 
           <div className='row'>
