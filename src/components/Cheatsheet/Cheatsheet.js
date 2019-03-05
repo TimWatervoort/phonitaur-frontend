@@ -8,6 +8,7 @@ import arabic from './Arabic';
 import cyrillic from './Cyrillic.js';
 import dutch from './Dutch';
 import german from './German';
+import persian from './Persian';
 
 class Cheatsheet extends Component {
   render() {
@@ -30,6 +31,9 @@ class Cheatsheet extends Component {
         break;
       case 'German':
         items = german;
+        break;
+      case 'Persian':
+        items = persian;
         break;
       default:
         items = null;

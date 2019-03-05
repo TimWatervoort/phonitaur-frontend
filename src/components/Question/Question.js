@@ -51,7 +51,7 @@ class Question extends Component {
     const { question, alph } = this.props;
 
     let keyboardButton = null, keyboard = null;
-    if (['Cyrillic', 'Arabic', 'International Phonetic Alphabet','German'].includes(alph)){
+    if (['Cyrillic', 'Arabic', 'International Phonetic Alphabet','German', 'Persian'].includes(alph)){
       keyboardButton = <button onClick={this.toggleKeys} className='sub-but btn btn-danger mt-1 mb-4'><i className="fas fa-keyboard"></i></button>
       keyboard = <Keyboard fkb={this.addToInput} alph={alph} />
     }

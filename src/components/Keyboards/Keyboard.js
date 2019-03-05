@@ -34,6 +34,8 @@ class CyrillicKeyboard extends Component {
 
     let german=['Ä','Ö','Ü','ẞ'];
 
+    let persian = ['ث','پ','ژ','گ','ک','چ','ی','و','ب','ه','ع','ظ','ط','ض','ص','ش','س','ز','ر','ذ','د','ن','م','ل','ق','ف','ج','خ','ح','ث','ت','غ'];
+
     let alphabet = null;
     if (alph === 'Cyrillic') {
       alphabet = cyrillic;
@@ -43,6 +45,8 @@ class CyrillicKeyboard extends Component {
       alphabet = ipa;
     } else if (alph === 'German'){
       alphabet = german;
+    } else if (alph === 'Persian'){
+      alphabet = persian;
     }
 
     if (this.state.case === 'lower') {
@@ -57,7 +61,7 @@ class CyrillicKeyboard extends Component {
           <div className='mx-auto text-center'>
             <h4 className='mx-auto text-white user-text card-title'>Keyboard</h4>
             <h4><button className='user-text btn btn-danger' onClick={this.toggleCase}>Toggle Case</button></h4>
-            {alphabet.map((x,i) => <span onClick={this.handleClick} key={i} className='user-text text-white mx-2'>{x}</span>)}
+            {alphabet.map((x,i) => <span onClick={this.handleClick} key={i} className='kb-key user-text text-white mx-2'>{x}</span>)}
           </div>
         </div>
       </div>

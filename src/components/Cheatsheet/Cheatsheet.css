@@ -18,3 +18,7 @@
 .even-row {
   background-color: none;
 }
+
+.audio-btn {
+  cursor: pointer;
+}

@@ -16,3 +16,7 @@
 .q-but{
   height: 30px !important;
 }
+
+.kb-key {
+  cursor: pointer;
+}
